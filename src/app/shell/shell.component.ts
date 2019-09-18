@@ -1,9 +1,10 @@
 import { Title } from '@angular/platform-browser';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MediaObserver } from '@angular/flex-layout';
 
 import { I18nService } from '@app/core';
+import { MenuItems } from '@app/menuItems';
 
 @Component({
   selector: 'app-shell',
@@ -11,6 +12,8 @@ import { I18nService } from '@app/core';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit {
+  menuItems = new MenuItems();
+
   constructor(
     private router: Router,
     private titleService: Title,

@@ -6,9 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { MaterialModule } from '@app/material.module';
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
-import { QuoteService } from './quote.service';
+import { components, ControlRoutingModule } from './control-routing.module';
 
 @NgModule({
   imports: [
@@ -18,8 +16,8 @@ import { QuoteService } from './quote.service';
     SharedModule,
     FlexLayoutModule,
     MaterialModule,
-    HomeRoutingModule
+    ControlRoutingModule
   ],
-  declarations: [HomeComponent]
+  declarations: components
 })
-export class HomeModule {}
+export class ControlModule {}

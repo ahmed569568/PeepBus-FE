@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { extract } from '@app/core';
-import { HomeComponent } from './home.component';
 import { Shell } from '@app/shell/shell.service';
+import { MonitoringComponent } from './components';
 
 const routes: Routes = [
   Shell.childRoutes([
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent, data: { title: extract('Home') } }
+    { path: '', redirectTo: '/control', pathMatch: 'full' },
+    { path: 'control', component: MonitoringComponent, data: { title: extract('control') } }
   ])
 ];
 
@@ -17,4 +17,6 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class HomeRoutingModule {}
+export class ControlRoutingModule {}
+
+export const components = [MonitoringComponent];
