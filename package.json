@@ -1,5 +1,5 @@
 {
-  "name": "peep-fe-web-frontend-portal",
+  "name": "peep-fe-web-frontend-portal-auth",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -34,12 +34,10 @@
     "material-design-icons-iconfont": "^5.0.1",
     "hammerjs": "^2.0.8",
     "lodash": "^4.17.11",
-    "moment": "^2.24.0",
     "rxjs": "^6.5.2",
     "zone.js": "^0.9.1"
   },
   "devDependencies": {
-    "@angular-builders/jest": "^8.0.4",
     "@angular/cli": "~8.1.0",
     "@angular/compiler-cli": "^8.1.0",
     "@angular/language-service": "^8.1.0",
@@ -49,7 +47,6 @@
     "@ngx-rocket/scripts": "^4.0.0",
     "@types/jasmine": "^3.3.13",
     "@types/jasminewd2": "^2.0.3",
-    "@types/jest": "^24.0.12",
     "@types/node": "^10.9.0",
     "@types/lodash": "^4.14.112",
     "codelyzer": "^5.1.0",
@@ -58,8 +55,13 @@
     "https-proxy-agent": "^2.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "jest": "^24.7.1",
-    "jest-preset-angular": "^7.1.0",
+    "karma": "~4.2.0",
+    "karma-chrome-launcher": "^3.0.0",
+    "karma-cli": "~2.0.0",
+    "karma-coverage-istanbul-reporter": "^2.0.2",
+    "karma-jasmine": "^2.0.1",
+    "karma-jasmine-html-reporter": "^1.4.0",
+    "karma-junit-reporter": "^1.2.0",
     "prettier": "^1.16.3",
     "tslint-config-prettier": "^1.14.0",
     "stylelint-config-prettier": "^5.1.0",

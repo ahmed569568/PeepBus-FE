@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "peep-fe-web-frontend-portal": {
+    "peep-fe-web-frontend-portal-auth": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -22,8 +22,15 @@
             "main": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": ["src/favicon.ico", "src/apple-touch-icon.png", "src/robots.txt", "src/assets"],
-            "styles": ["src/main.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/apple-touch-icon.png",
+              "src/robots.txt",
+              "src/assets"
+            ],
+            "styles": [
+              "src/main.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -61,12 +68,12 @@
           "options": {
             "hmr": true,
             "hmrWarning": false,
-            "browserTarget": "peep-fe-web-frontend-portal:build"
+            "browserTarget": "peep-fe-web-frontend-portal-auth:build"
           },
           "configurations": {
             "production": {
               "hmr": false,
-              "browserTarget": "peep-fe-web-frontend-portal:build:production"
+              "browserTarget": "peep-fe-web-frontend-portal-auth:build:production"
             },
             "ci": {
               "progress": false
@@ -76,33 +83,49 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "peep-fe-web-frontend-portal:build"
+            "browserTarget": "peep-fe-web-frontend-portal-auth:build"
           }
         },
         "test": {
-          "builder": "@angular-builders/jest:run",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "watch": true
+            "main": "src/test.ts",
+            "karmaConfig": "karma.conf.js",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "scripts": [],
+            "styles": [
+              "src/main.scss"
+            ],
+            "assets": [
+              "src/favicon.ico",
+              "src/apple-touch-icon.png",
+              "src/robots.txt",
+              "src/assets"
+            ]
           },
           "configurations": {
             "ci": {
-              "watch": false,
-              "ci": true,
-              "coverage": true,
-              "silent": true
+              "progress": false,
+              "watch": false
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
     },
-    "peep-fe-web-frontend-portal-e2e": {
+    "peep-fe-web-frontend-portal-auth-e2e": {
       "root": "e2e",
       "projectType": "application",
       "architect": {
@@ -110,18 +133,22 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "peep-fe-web-frontend-portal:serve"
+            "devServerTarget": "peep-fe-web-frontend-portal-auth:serve"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "peep-fe-web-frontend-portal"
+  "defaultProject": "peep-fe-web-frontend-portal-auth"
 }

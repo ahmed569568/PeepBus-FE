@@ -5,7 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@app/material.module';
 
-import { CoreModule } from '@app/core';
+import { AuthenticationService, CredentialsService, CoreModule } from '@app/core';
+import { MockAuthenticationService } from '@app/core/authentication/authentication.service.mock';
+import { MockCredentialsService } from '@app/core/authentication/credentials.service.mock';
 
 import { ShellComponent } from './shell.component';
 
@@ -22,6 +24,10 @@ describe('ShellComponent', () => {
         FlexLayoutModule,
         MaterialModule,
         CoreModule
+      ],
+      providers: [
+        { provide: AuthenticationService, useClass: MockAuthenticationService },
+        { provide: CredentialsService, useClass: MockCredentialsService }
       ],
       declarations: [ShellComponent]
     }).compileComponents();
