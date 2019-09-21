@@ -1,24 +1,17 @@
-<div fxFlex>
+<div [dir]="currentLang === 'ar-SA' ? 'rtl' : 'ltr'" class="app-container" fxFlex>
   <mat-sidenav-container fxFill>
-    <mat-sidenav
-      #sidenav
-      [mode]="isMobile ? 'over' : 'side'"
-      [opened]="!isMobile"
-      [disableClose]="!isMobile"
-      ngClass.gt-sm="has-border"
-    >
+    <mat-sidenav #sidenav [mode]="'side'" [opened]="true">
       <mat-toolbar color="primary">
-        <span translate>APP_NAME</span>
-        <div fxFlex></div>
-        <div></div>
+        <img
+          width="150"
+          style="margin: 0 auto; filter: brightness(0)invert(1)"
+          src="../../assets/text-side.svg"
+          alt="..."
+        />
         <div>
-          <button mat-icon-button [matMenuTriggerFor]="languageMenu">
-            <mat-icon>language</mat-icon>
-          </button>
-          <mat-menu #languageMenu="matMenu">
-            <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
-              {{ language }}
-            </button>
+          <mat-menu #userMenu="matMenu">
+            <button mat-menu-item (click)="navigateToProfile()">{{ 'common.edit_profile' | translate }}</button>
+            <button mat-menu-item (click)="logout()">{{ 'common.logout' | translate }}</button>
           </mat-menu>
         </div>
       </mat-toolbar>
@@ -30,11 +23,16 @@
               <mat-icon class="menuIcon">{{ item.icon }}</mat-icon>
               <span>{{ 'menu.' + item.title | translate }}</span>
             </a>
-            <mat-expansion-panel routerLinkActive="active" class="menuDropDown" *ngIf="item?.children?.length > 0">
+            <mat-expansion-panel
+              routerLinkActive="active"
+              class="menuDropDown"
+              style="background: #242d42;padding: 0;border-bottom: 1px solid #2a3348;"
+              *ngIf="item?.children?.length > 0"
+            >
               <mat-expansion-panel-header>
                 <span>
                   <mat-icon class="menuIcon">{{ item.icon }}</mat-icon>
-                  <span>{{ 'menu.' + item.title | translate }}</span>
+                  {{ 'menu.' + item.title | translate }}
                 </span>
               </mat-expansion-panel-header>
               <mat-list *ngFor="let child of item.children; let i = index">
@@ -51,14 +49,26 @@
         </mat-list>
       </nav>
     </mat-sidenav>
+
     <mat-sidenav-content>
       <mat-toolbar color="primary" class="mat-elevation-z6">
-        <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" fxHide.gt-sm>
+        <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">
           <mat-icon>menu</mat-icon>
         </button>
-        <span>{{ title }}</span>
+        <div class="container p-0">
+          <div class="user-lang">
+            <button [matTooltip]="'common.change_language' | translate" mat-button>
+              <button (click)="toggleLanguage()" class="userBtn" mat-menu-item>
+                {{ 'languages.' + currentLang | translate }}
+              </button>
+            </button>
+          </div>
+        </div>
       </mat-toolbar>
-      <router-outlet></router-outlet>
+
+      <div class="full-height" fx-flex fxLayout="column">
+        <router-outlet></router-outlet>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

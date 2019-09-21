@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-
-import { Credentials, CredentialsService } from './credentials.service';
+import { CredentialsService } from '@app/core/authentication/credentials.service';
+import { ApiRequestService } from '@app/core/http/api-request.service';
+import { ApiResponse } from '@app/interfaces';
+import { map } from 'rxjs/operators';
 
 export interface LoginContext {
-  username: string;
+  email: string;
   password: string;
   remember?: boolean;
 }
@@ -17,21 +19,35 @@ export interface LoginContext {
   providedIn: 'root'
 })
 export class AuthenticationService {
-  constructor(private credentialsService: CredentialsService) {}
+  constructor(private credentialsService: CredentialsService, private api: ApiRequestService) {}
+
+  get token(): string | null {
+    const credentials = this.credentialsService.credentials;
+    return credentials ? credentials.token : null;
+  }
 
   /**
    * Authenticates the user.
    * @param context The login parameters.
    * @return The user credentials.
    */
-  login(context: LoginContext): Observable<Credentials> {
+  login(context: LoginContext) {
     // Replace by proper authentication call
     const data = {
-      username: context.username,
-      token: '123456'
+      email: context.email,
+      password: context.password
     };
-    this.credentialsService.setCredentials(data, context.remember);
-    return of(data);
+    return this.api.post('users/login', data).pipe(
+      map((resp: ApiResponse) => {
+        if (resp.status_code === 200) {
+          const credentials = {
+            token: resp.response.user_token.access_token
+          };
+          this.credentialsService.setCredentials(credentials, context.remember);
+        }
+        return resp;
+      })
+    );
   }
 
   /**
@@ -42,5 +58,13 @@ export class AuthenticationService {
     // Customize credentials invalidation here
     this.credentialsService.setCredentials();
     return of(true);
+  }
+
+  reset(data: any) {
+    return this.api.post('users/reset-code', data).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
   }
 }

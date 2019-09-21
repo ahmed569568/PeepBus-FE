@@ -1,0 +1,104 @@
+<div fxFlex fxLayout="column" style="padding: 0rem 1rem;">
+  <h3>{{ 'common.add' | translate }} {{ cid + '.title_single' | translate }}</h3>
+  <form class="d-flex default-form-style" [formGroup]="form" (ngSubmit)="formSubmission()">
+    <ng-container *ngFor="let field of service.featureProps; trackBy: trackByFn">
+      <div *ngIf="field.formField" class="form-field" style="flex: 1 1 50%;">
+        <mat-grid-list cols="2" rowHeight="5:1">
+          <ng-container *ngIf="field.formFieldType === 'text'">
+            <mat-form-field>
+              <input
+                type="text"
+                matInput
+                [formControlName]="field.name"
+                [placeholder]="cid + '.' + field.name | translate"
+              />
+            </mat-form-field>
+            <app-control-errors [ctl]="form.get(field.name)" class="error-message"></app-control-errors>
+          </ng-container>
+          <ng-container *ngIf="field.formFieldType === 'password'">
+            <mat-form-field>
+              <input
+                type="password"
+                matInput
+                [formControlName]="field.name"
+                [placeholder]="cid + '.' + field.name | translate"
+              />
+            </mat-form-field>
+            <app-control-errors [ctl]="form.get(field.name)" class="error-message"></app-control-errors>
+          </ng-container>
+          <ng-container *ngIf="field.formFieldType === 'email'">
+            <mat-form-field>
+              <input
+                type="email"
+                matInput
+                [formControlName]="field.name"
+                [placeholder]="cid + '.' + field.name | translate"
+              />
+            </mat-form-field>
+          </ng-container>
+          <ng-container *ngIf="field.formFieldType === 'multi_select'">
+            <mat-form-field>
+              <mat-select [formControlName]="field.name" [placeholder]="cid + '.' + field.name | translate" multiple>
+                <mat-option *ngFor="let item of service.lists[field.listPrefix].data" [value]="item.id">
+                  {{ item.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <app-control-errors [ctl]="form.get(field.name)" class="error-message"></app-control-errors>
+          </ng-container>
+          <ng-container *ngIf="field.formFieldType === 'select'">
+            <mat-form-field>
+              <mat-select [formControlName]="field.name" [placeholder]="cid + '.' + field.name | translate">
+                <mat-option *ngFor="let item of service.lists[field.listPrefix].data" [value]="item.id">
+                  {{ item.name || item.role || item.brand_name || item.model_name || item.branch_name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </ng-container>
+          <ng-container *ngIf="field.formFieldType === 'color_picker'">
+            <div style="margin: 10px" class="mat-form-field">
+              <label style="position: absolute; padding: 7px 15px;">{{ cid + '.' + field.name | translate }}</label>
+              <input
+                style="border: none;border-radius: 10px;padding: 10px; width: 100%; text-align: center;"
+                [matTooltip]="'common.click_to_change' | translate"
+                [formControlName]="field.name"
+                [colorPicker]="form.controls[field.name].value"
+                (colorPickerChange)="setColor(field.name, $event)"
+                [style.background]="form.controls[field.name].value || '#e3e3e3'"
+              />
+            </div>
+            <app-control-errors [ctl]="form.get(field.name)" class="error-message"></app-control-errors>
+          </ng-container>
+          <ng-container *ngIf="field.formFieldType === 'file_input'">
+            <div
+              [matTooltip]="'common.click_to_upload' | translate"
+              class="mat-form-field"
+              style="display: flex; flex-direction: column"
+            >
+              <label class="imageUploader" for="file">
+                <span class="addNew">
+                  <img
+                    width="30"
+                    *ngIf="form.controls[field.name].value"
+                    [src]="imagePath(environment[field.imagePath], form.controls[field.name].value)"
+                    [alt]="field.name"
+                  />
+                  <span class="drag">{{ 'common.drag_drop' | translate }}</span>
+                  <span class="browse">{{ 'common.browse' | translate }}</span>
+                </span>
+              </label>
+              <input
+                style="width: 0.1px; height: 0.1px;"
+                id="file"
+                type="file"
+                (change)="uploadPhoto($event, field.name)"
+              />
+            </div>
+            <app-control-errors [ctl]="form.get(field.name)" class="error-message"></app-control-errors>
+          </ng-container>
+        </mat-grid-list>
+      </div>
+    </ng-container>
+  </form>
+  <app-form-footer (submit)="formSubmission()" [form]="form"></app-form-footer>
+</div>

@@ -1,11 +1,26 @@
+@import "~ngx-toastr/toastr";
+
 /*
  * Global application theme.
  * Framework overrides and customization goes here.
  */
 
-// stylelint-disable-next-line selector-max-universal
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap");
+
 * {
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0.5px;
+  font-weight: normal;
+  line-height: 1.5;
 }
 
 html,
@@ -13,5 +28,96 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
+  height: 100%;
+}
+
+.menuDropDown {
+  span.mat-content {
+    span {
+      display: flex !important;
+    }
+  }
+}
+
+.default-form-style {
+  flex-wrap: wrap;
+
+  .form-field {
+    mat-form-field,
+    .mat-form-field {
+      width: 25rem;
+      margin: 0 10px;
+    }
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.chartjs-render-monitor {
+  width: 100% !important;
+}
+
+.clearfix {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+.imageUploader {
+  width: 100%;
+  padding: 5px;
+  height: 53px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 1px dashed #5069e4;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+
+  .addNew {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .browse {
+      border-radius: 4px;
+      color: #fff;
+      font-size: 16px;
+      padding: 7px 10px;
+      background-color: #5069e4;
+    }
+
+    .drag {
+      color: #5069e4;
+      font-size: 16px;
+    }
+  }
+}
+
+.d-flex {
+  display: flex;
+}
+
+.full-height {
+  height: calc(100% - 64px);
+}
+
+.disabled {
+  background: #d9dce5 !important;
+  color: #b5bacb !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+app-branches-list,
+app-roles-list {
   height: 100%;
 }

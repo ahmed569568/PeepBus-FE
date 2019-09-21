@@ -7,10 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 
 import { CoreModule } from '@app/core';
-import { SharedModule } from '@app/shared';
-import { HomeModule } from './home/home.module';
+import { SharedModule } from '@app/shared/shared.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 import { ShellModule } from './shell/shell.module';
-import { LoginModule } from './login/login.module';
+import { AuthModule } from './auth/auth.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -25,8 +25,8 @@ import { AppRoutingModule } from './app-routing.module';
     CoreModule,
     SharedModule,
     ShellModule,
-    HomeModule,
-    LoginModule,
+    DashboardModule,
+    AuthModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],

@@ -1,0 +1,24 @@
+<div class="listOptions" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+  <h3>{{ listOptions.customTitle ? (listOptions.customTitle | translate) : (controller + '.title' | translate) }}</h3>
+  <div>
+    <button
+      mat-button
+      *ngIf="listOptions.add"
+      [ngClass]="{ disabled: mode === 'add' }"
+      [disabled]="mode === 'add'"
+      [secured]="controller + '-add'"
+      (click)="doAction('add')"
+    >
+      {{ 'common.add' | translate }}
+      <mat-icon>add</mat-icon>
+    </button>
+    <button
+      mat-button
+      [matTooltip]="'common.refresh' | translate"
+      (click)="doAction('resetList')"
+      title="{{ 'common.refresh' | translate }}"
+    >
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+</div>

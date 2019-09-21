@@ -1,0 +1,10 @@
+<div class="dialog-container">
+  <span mat-dialog-title>{{ 'dialog.confirm_delete' | translate }}</span>
+  <mat-dialog-content
+    >{{ 'dialog.' + data.message | translate }}<strong> {{ data.name }}</strong> !</mat-dialog-content
+  >
+  <mat-dialog-actions>
+    <button mat-dialog-close>{{ 'dialog.' + data.cancelText | translate }}</button>
+    <button color="warn" (click)="submit()" mat-dialog-close>{{ 'dialog.' + data.submitText | translate }}</button>
+  </mat-dialog-actions>
+</div>

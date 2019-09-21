@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
+import { ReplaySubject, Subject } from 'rxjs';
 
 export interface Credentials {
-  // Customize received credentials here
-  username: string;
-  token: string;
+  token?: string;
 }
 
 const credentialsKey = 'credentials';
@@ -16,7 +15,31 @@ const credentialsKey = 'credentials';
   providedIn: 'root'
 })
 export class CredentialsService {
+  /**
+   * Gets the user credentials.
+   * @return The user credentials or null if the user is not authenticated.
+   */
+  get credentials(): Credentials | null {
+    return this._credentials;
+  }
+
+  userSubject: Subject<any> = new Subject();
+  permissionSubject: ReplaySubject<any> = new ReplaySubject();
+
   private _credentials: Credentials | null = null;
+  private _permissions = '';
+
+  static checkPermissions(permissionKey: string) {
+    const userPermissions = JSON.parse(localStorage.getItem('permissions'));
+    const userPermission = permissionKey.split('-');
+    for (const perm of Object.keys(JSON.parse(userPermissions))) {
+      if (perm === userPermission[0]) {
+        if (userPermissions[perm]) {
+          return userPermissions[perm].indexOf(userPermission[1]) > -1;
+        }
+      }
+    }
+  }
 
   constructor() {
     const savedCredentials = sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey);
@@ -33,12 +56,16 @@ export class CredentialsService {
     return !!this.credentials;
   }
 
-  /**
-   * Gets the user credentials.
-   * @return The user credentials or null if the user is not authenticated.
-   */
-  get credentials(): Credentials | null {
-    return this._credentials;
+  setPermissions(permissions: string) {
+    const permissionsKey = 'permissions';
+    this._permissions = permissions || null;
+    if (permissions) {
+      localStorage.setItem(permissionsKey, JSON.stringify(permissions));
+      this.permissionSubject.next();
+    } else {
+      sessionStorage.removeItem(permissionsKey);
+      localStorage.removeItem(permissionsKey);
+    }
   }
 
   /**
@@ -50,10 +77,10 @@ export class CredentialsService {
    */
   setCredentials(credentials?: Credentials, remember?: boolean) {
     this._credentials = credentials || null;
-
     if (credentials) {
       const storage = remember ? localStorage : sessionStorage;
       storage.setItem(credentialsKey, JSON.stringify(credentials));
+      this.userSubject.next();
     } else {
       sessionStorage.removeItem(credentialsKey);
       localStorage.removeItem(credentialsKey);

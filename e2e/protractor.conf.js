@@ -10,8 +10,7 @@ exports.config = {
   capabilities: {
     browserName: process.env.PROTRACTOR_BROWSER || 'chrome',
     chromeOptions: {
-      binary: process.env.PROTRACTOR_CHROME_BIN || undefined,
-      args: process.env.PROTRACTOR_CHROME_ARGS ? JSON.parse(process.env.PROTRACTOR_CHROME_ARGS) : ['lang=en-US'],
+      args: ['lang=en-US'],
       prefs: {
         intl: { accept_languages: 'en-US' }
       }

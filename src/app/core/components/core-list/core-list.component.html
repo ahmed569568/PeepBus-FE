@@ -1,0 +1,20 @@
+<div class="container" style="height: 100%">
+  <router-outlet></router-outlet>
+  <mat-card style="height: 100%">
+    <mat-card-content>
+      <app-list-grid-options
+        [controller]="cid"
+        [listOptions]="listOptions"
+        (doActionEvent)="doAction($event)"
+      ></app-list-grid-options>
+      <app-list-grid
+        [controller]="cid"
+        [columns]="columns"
+        [options]="listOptions"
+        [service]="service"
+        [searchable]="listOptions.searchable"
+      ></app-list-grid>
+      <app-pagination [options]="listOptions" [service]="service"></app-pagination>
+    </mat-card-content>
+  </mat-card>
+</div>

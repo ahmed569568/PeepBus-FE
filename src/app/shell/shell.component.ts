@@ -1,10 +1,11 @@
 import { Title } from '@angular/platform-browser';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MediaObserver } from '@angular/flex-layout';
-
-import { I18nService } from '@app/core';
-import { MenuItems } from '@app/menuItems';
+import { MenuItems } from '../menuItems';
+import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
+import { environment } from '@env/environment';
+import { UtilitiesService } from '@app/shared/services/utilities.service';
 
 @Component({
   selector: 'app-shell',
@@ -13,12 +14,16 @@ import { MenuItems } from '@app/menuItems';
 })
 export class ShellComponent implements OnInit {
   menuItems = new MenuItems();
+  environment = environment;
 
   constructor(
     private router: Router,
     private titleService: Title,
     private media: MediaObserver,
-    private i18nService: I18nService
+    private authenticationService: AuthenticationService,
+    private credentialsService: CredentialsService,
+    private i18nService: I18nService,
+    private us: UtilitiesService
   ) {}
 
   ngOnInit() {}
@@ -27,15 +32,47 @@ export class ShellComponent implements OnInit {
     this.i18nService.language = language;
   }
 
-  get languages(): string[] {
-    return this.i18nService.supportedLanguages;
+  logout() {
+    this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
-  get isMobile(): boolean {
-    return this.media.isActive('xs') || this.media.isActive('sm');
+  // get username(): string | null {
+  //   const credentials = this.credentialsService.credentials;
+  //   return credentials ? credentials.username : null;
+  // }
+
+  toggleLanguage() {
+    if (this.currentLang === 'en-US') {
+      this.setLanguage('ar-SA');
+      this.us.changeLanguage('ar-SA');
+    } else {
+      this.setLanguage('en-US');
+      this.us.changeLanguage('en-US');
+    }
   }
+
+  get userImage(): string | null {
+    const credentials = this.credentialsService.credentials;
+    return credentials ? credentials.image : null;
+  }
+
+  get currentLang(): string {
+    return this.i18nService.language;
+  }
+
+  // get languages(): string[] {
+  //   return this.i18nService.supportedLanguages;
+  // }
+
+  // get isMobile(): boolean {
+  //   return this.media.isActive('xs') || this.media.isActive('sm');
+  // }
 
   get title(): string {
     return this.titleService.getTitle();
+  }
+
+  navigateToProfile() {
+    return this.router.navigate(['/profile', this.credentialsService.credentials.id]);
   }
 }
