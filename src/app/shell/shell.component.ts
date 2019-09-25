@@ -51,11 +51,6 @@ export class ShellComponent implements OnInit {
     }
   }
 
-  get userImage(): string | null {
-    const credentials = this.credentialsService.credentials;
-    return credentials ? credentials.image : null;
-  }
-
   get currentLang(): string {
     return this.i18nService.language;
   }
@@ -70,9 +65,5 @@ export class ShellComponent implements OnInit {
 
   get title(): string {
     return this.titleService.getTitle();
-  }
-
-  navigateToProfile() {
-    return this.router.navigate(['/profile', this.credentialsService.credentials.id]);
   }
 }

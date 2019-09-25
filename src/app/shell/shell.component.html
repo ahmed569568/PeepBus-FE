@@ -1,20 +1,6 @@
 <div [dir]="currentLang === 'ar-SA' ? 'rtl' : 'ltr'" class="app-container" fxFlex>
   <mat-sidenav-container fxFill>
     <mat-sidenav #sidenav [mode]="'side'" [opened]="true">
-      <mat-toolbar color="primary">
-        <img
-          width="150"
-          style="margin: 0 auto; filter: brightness(0)invert(1)"
-          src="../../assets/text-side.svg"
-          alt="..."
-        />
-        <div>
-          <mat-menu #userMenu="matMenu">
-            <button mat-menu-item (click)="navigateToProfile()">{{ 'common.edit_profile' | translate }}</button>
-            <button mat-menu-item (click)="logout()">{{ 'common.logout' | translate }}</button>
-          </mat-menu>
-        </div>
-      </mat-toolbar>
       <nav>
         <mat-list>
           <mat-divider></mat-divider>

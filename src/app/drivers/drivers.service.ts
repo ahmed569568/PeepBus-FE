@@ -48,10 +48,12 @@ export class DriversService extends RootService {
         width: 300
       },
       {
-        name: 'creator',
-        prop: 'creator.username',
-        listing: false,
-        formField: false,
+        name: 'language',
+        prop: 'language.name',
+        listing: true,
+        formField: true,
+        formFieldType: 'text',
+        required: true,
         width: 300
       }
     ];
