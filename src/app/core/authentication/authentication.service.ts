@@ -37,7 +37,7 @@ export class AuthenticationService {
       email: context.email,
       password: context.password
     };
-    return this.api.post('users/login', data).pipe(
+    return this.api.post('login', data).pipe(
       map((resp: ApiResponse) => {
         if (resp.status_code === 200) {
           const credentials = {
