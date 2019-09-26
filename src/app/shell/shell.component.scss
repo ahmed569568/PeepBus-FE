@@ -18,6 +18,7 @@
 .mat-sidenav {
   min-width: 270px;
   max-width: 28%;
+  padding-top: 28px;
 }
 
 .has-border {
@@ -36,17 +37,22 @@
   }
 }
 
-.menu-button {
+.side-menu-button {
   margin-right: 1rem;
+  margin-bottom: 3.5rem;
+
+  mat-icon {
+    color: #313131 !important;
+  }
 }
 
 .mat-drawer {
-  background: #2a3348 !important;
+  background: white;
 
   a,
   .mat-expansion-panel-header,
   mat-expansion-panel {
-    color: #888da8;
+    color: #a7a7a7;
     font-weight: 100;
 
     &.active {
@@ -54,11 +60,11 @@
         color: white;
 
         .mat-icon {
-          color: #5069e4;
+          color: #0063f4;
         }
       }
 
-      color: #5069e4;
+      color: #0063f4;
       font-weight: bold;
     }
   }
@@ -148,4 +154,23 @@
 .user-lang {
   display: flex;
   justify-content: space-between;
+}
+
+.side-menu-header {
+  display: flex;
+
+  img {
+    margin: 6px 0 0 15px;
+    height: fit-content;
+  }
+}
+
+.side-menu-bg {
+  width: 100%;
+  height: 230px;
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  background-image: url("../../assets/menubg.png");
+  background-size: cover;
 }
