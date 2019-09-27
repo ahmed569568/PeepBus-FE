@@ -20,21 +20,21 @@ export class DriversFormComponent extends CoreFormComponent implements OnInit, O
   }
 
   initLists() {
-    this.lists = [{ users: 1 }];
+    this.lists = [{ ['drivers/languages']: 1 }];
   }
 
-  refactorItem(item: any): any {
-    super.refactorItem(item);
-    /**
-     * Set value of selected items
-     */
-    const selectedUsers = [];
-    for (const user of item.users) {
-      selectedUsers.push(user.user_id);
-    }
-    this.form.controls.branch_managers.setValue(selectedUsers); // Final Return
-    return item;
-  }
+  // refactorItem(item: any): any {
+  //   super.refactorItem(item);
+  //   /**
+  //    * Set value of selected items
+  //    */
+  //   const selectedUsers = [];
+  //   for (const user of item.users) {
+  //     selectedUsers.push(user.user_id);
+  //   }
+  //   this.form.controls.branch_managers.setValue(selectedUsers); // Final Return
+  //   return item;
+  // }
 
   get lists() {
     return this._lists;

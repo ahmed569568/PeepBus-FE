@@ -118,7 +118,6 @@ export class CoreFormComponent implements OnInit, OnDestroy {
       .showItem(id)
       .pipe(
         map(item => {
-          // this.item = item;
           return this.refactorItem(item);
         })
       )
