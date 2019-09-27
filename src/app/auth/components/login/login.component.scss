@@ -56,6 +56,7 @@
     width: 30%;
     overflow: hidden;
     background-color: white;
+    z-index: 3;
 
     .left-section-img {
       height: 104px;
@@ -79,10 +80,9 @@
   .right-section {
     display: inline-block;
     width: 70%;
-
-    .login-card {
-      background-image: url("../../../../assets/loginmap-bg.png");
-    }
+    background-image: url("../../../../assets/map-bg-edit.png");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .login-inputs {
@@ -131,5 +131,21 @@
 
   .pass-reset {
     padding: 0rem 0.5rem 0rem 0rem;
+  }
+}
+
+.login-footer-img {
+  height: 70%;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 62%, rgba(255, 255, 255, 0) 100%);
+  position: relative;
+  overflow: hidden;
+  margin-top: 18%; //temporary
+
+  img {
+    position: absolute;
+    bottom: -30px;
+    left: -160px;
   }
 }
