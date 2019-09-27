@@ -96,7 +96,12 @@
     "brands": "Brands",
     "models": "Models",
     "users": "Users",
-    "specifications": "Specifications"
+    "specifications": "Specifications",
+    "control": "Control",
+    "buses": "Buses",
+    "drivers": "Driver",
+    "student": "Student",
+    "settings": "Settings"
   },
   "check-in": {
     "title": "Check-in"

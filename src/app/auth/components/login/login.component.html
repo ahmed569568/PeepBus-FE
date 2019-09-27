@@ -1,5 +1,11 @@
 <div class="container">
-  <div class="left-section"></div>
+  <div class="left-section">
+    <div class="section-content" fxLayout="column">
+      <img class="left-section-img" src="../../../../assets/login-logo.png" />
+      <span id="peepBus">Peep Bus</span>
+      <span id="take">Take it easy</span>
+    </div>
+  </div>
 
   <div class="right-section">
     <mat-card class="login-card">
@@ -47,7 +53,7 @@
                   <span translate>Password is required</span>
                 </mat-error>
               </mat-form-field>
-              <mat-checkbox class="checkBox" formControlName="remember" translate>Remember me </mat-checkbox>
+              <mat-checkbox class="checkBox" formControlName="remember" translate>Remember me</mat-checkbox>
               <br />
               <button
                 class="login-btn"

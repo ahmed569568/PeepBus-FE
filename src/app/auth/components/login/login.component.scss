@@ -22,6 +22,7 @@
 .login-error {
   color: mat-color($app-warn);
 }
+
 ::ng-deep .mat-checkbox .mat-checkbox-frame {
   border-color: #5069e4 !important;
 }
@@ -29,6 +30,7 @@
 ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
   background-color: #5069e4 !important;
 }
+
 .container {
   display: flex;
   width: 100%;
@@ -37,6 +39,7 @@
   .mat-form-field-label {
     color: #5e6ea7;
   }
+
   .login-card {
     height: 100%;
     padding-left: 1.5rem;
@@ -47,21 +50,45 @@
   }
 
   .left-section {
-    display: inline-block;
-    background-image: url("../../../../assets/Image.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
     overflow: hidden;
-    border-radius: 5px 0 0 5px;
+    background-color: white;
+
+    .left-section-img {
+      height: 104px;
+      width: 86px;
+      margin-bottom: 1rem;
+    }
+
+    .section-content {
+      #peepBus {
+        font-size: 32px;
+        font-weight: bold;
+      }
+
+      #take {
+        color: #0063f4;
+        font-size: 16px;
+      }
+    }
   }
+
   .right-section {
     display: inline-block;
-    width: 35%;
+    width: 70%;
+
+    .login-card {
+      background-image: url("../../../../assets/loginmap-bg.png");
+    }
   }
+
   .login-inputs {
     max-width: 70%;
   }
+
   .login-btn {
     width: 10rem;
     height: 3rem;
@@ -84,20 +111,24 @@
     font-size: 32px;
     font-weight: 700;
   }
+
   .forgot-title {
     // letter-spacing: 0.1rem;
     color: #131b31;
     font-size: 32px;
     font-weight: 700;
   }
+
   .forget-password {
     display: flex;
     align-items: center;
     padding-top: 2.75rem;
+
     a {
       color: #5e6ea7;
     }
   }
+
   .pass-reset {
     padding: 0rem 0.5rem 0rem 0rem;
   }
