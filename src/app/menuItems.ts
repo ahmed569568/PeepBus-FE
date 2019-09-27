@@ -1,9 +1,9 @@
 export class MenuItems {
   items: MenuItem[] = [
     {
-      title: 'dashboard',
+      title: 'control',
       url: '/dashboard',
-      icon: 'home'
+      icon: 'desktop_windows'
     },
     {
       title: 'drivers',
