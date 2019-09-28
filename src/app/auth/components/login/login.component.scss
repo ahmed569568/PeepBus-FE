@@ -10,13 +10,31 @@
   display: inline-block;
 }
 
+form {
+  z-index: 5;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, white 0%, white 35%, rgba(255, 255, 255, 0) 80%);
+  //linear-gradient(0deg, white 0%, white 35%, rgba(255, 255, 255, 0) 80%)
+  padding: 10px;
+}
+
 .login-container,
 .mat-form-field {
   width: 100%;
+
+  mat-icon {
+    font-size: 18px;
+    font-weight: 300;
+  }
 }
 
-.login-fields > :not(:last-child) {
-  margin-bottom: 8px;
+.login-fields {
+  margin-right: 180px;
+  width: 80%;
+  margin-top: 75%;
+  &.login-fields > :not(:last-child) {
+    margin-bottom: 8px;
+  }
 }
 
 .login-error {
@@ -40,13 +58,15 @@
     color: #5e6ea7;
   }
 
-  .login-card {
-    height: 100%;
-    padding-left: 1.5rem;
+  //.login-card {
+  //  height: 100%;
+  //  padding-left: 1.5rem;
+  //}
 
-    .fields-container {
-      margin-top: 20%;
-    }
+  .fields-container {
+    //margin-top: 20%;
+    display: flex;
+    justify-content: space-between;
   }
 
   .left-section {
@@ -80,9 +100,10 @@
   .right-section {
     display: inline-block;
     width: 70%;
-    background-image: url("../../../../assets/map-bg-edit.png");
+    background-image: url("../../../../assets/map-bg-edit3.png");
     background-size: cover;
     background-repeat: no-repeat;
+    position: relative;
   }
 
   .login-inputs {
@@ -139,13 +160,15 @@
   width: 100%;
   background: rgb(255, 255, 255);
   background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 62%, rgba(255, 255, 255, 0) 100%);
-  position: relative;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
   overflow: hidden;
-  margin-top: 18%; //temporary
 
   img {
     position: absolute;
     bottom: -30px;
     left: -160px;
+    z-index: 5;
   }
 }

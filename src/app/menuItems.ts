@@ -8,7 +8,7 @@ export class MenuItems {
     {
       title: 'buses',
       url: '/buses',
-      icon: 'bus'
+      icon: 'directions_bus'
     },
     {
       title: 'drivers',

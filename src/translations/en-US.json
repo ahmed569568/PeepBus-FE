@@ -281,7 +281,9 @@
     "login": {
       "username-required": "Username is Required",
       "password-required": "Password is Required",
-      "incorrectCredentials": "Incorrect username or password"
+      "incorrectCredentials": "Incorrect username or password",
+      "username": "Username",
+      "password": "Password"
     },
     "forget": {
       "email-invalid": "Invalid Email"
