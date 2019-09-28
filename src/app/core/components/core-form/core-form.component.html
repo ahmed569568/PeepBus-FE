@@ -49,7 +49,7 @@
           <ng-container *ngIf="field.formFieldType === 'select'">
             <mat-form-field>
               <mat-select [formControlName]="field.name" [placeholder]="cid + '.' + field.name | translate">
-                <mat-option *ngFor="let item of service.lists[field.listPrefix].data" [value]="item.id">
+                <mat-option *ngFor="let item of service.lists[field.listPrefix]" [value]="item.id">
                   {{ item.name || item.role || item.brand_name || item.model_name || item.branch_name }}
                 </mat-option>
               </mat-select>

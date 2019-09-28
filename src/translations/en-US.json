@@ -301,5 +301,14 @@
     "previous": "Prev",
     "items": "Items",
     "of": "Of"
+  },
+  "drivers": {
+    "title": "Drivers",
+    "title_single": "Driver",
+    "password": "Password",
+    "image": "Image",
+    "name": "Name",
+    "phone": "Phone",
+    "language_id": "Language"
   }
 }

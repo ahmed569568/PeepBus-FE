@@ -48,12 +48,20 @@ export class DriversService extends RootService {
         width: 300
       },
       {
-        name: 'language',
+        name: 'password',
+        prop: 'password',
+        listing: false,
+        formField: true,
+        formFieldType: 'password',
+        required: true
+      },
+      {
+        name: 'language_id',
         prop: 'language.name',
         listing: true,
         formField: true,
-        formFieldType: 'text',
-        required: true,
+        formFieldType: 'select',
+        listPrefix: 'drivers-languages',
         width: 300
       }
     ];

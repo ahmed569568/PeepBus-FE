@@ -13,6 +13,7 @@ export abstract class RootService {
   resources: Subject<any> = new Subject();
   updateResources: Subject<any> = new Subject();
   lists: any = {
+    ['drivers-languages']: [],
     users: { data: [] },
     roles: { data: [] },
     brands: { data: [] },
@@ -113,7 +114,7 @@ export abstract class RootService {
    * Archive Item
    */
   archive(id: number) {
-    return this.doArchive(this.getFunctionURL('delete/' + id));
+    return this.doArchive(this.getFunctionURL(`${id}/archive`));
   }
 
   /**
@@ -163,13 +164,13 @@ export abstract class RootService {
    * @param id: Item Identifier
    */
   showItem(id: number) {
-    return this.doShow(this.getFunctionURL(`${id}`));
+    return this.doShow(this.getFunctionURL(`${id}/show`));
   }
 
   doShow(url: string) {
     return this.api.get(url).pipe(
       map((response: ApiResponse) => {
-        return this.refactorItem(response.data);
+        return this.refactorItem(response.response);
       })
     );
   }
@@ -179,7 +180,7 @@ export abstract class RootService {
    * @param data: New Item Data
    */
   createItem(data: {}) {
-    return this.doCreate(this.getFunctionURL(''), data);
+    return this.doCreate(this.getFunctionURL('create'), data);
   }
 
   /**
@@ -206,7 +207,7 @@ export abstract class RootService {
    * slc: Skip Location Change
    */
   updateItem(slc: boolean, id: any, data: {}) {
-    return this.doUpdateItem(slc, this.getFunctionURL(id), data);
+    return this.doUpdateItem(slc, this.getFunctionURL(`${id}/update`), data);
   }
 
   /**
@@ -245,7 +246,7 @@ export abstract class RootService {
    */
   getLists(field: string, page: number = 1) {
     return this.api
-      .get(field)
+      .get(`${field}/index`)
       .pipe(
         map(response => {
           return this.refactorListsData(field, response);
@@ -269,7 +270,8 @@ export abstract class RootService {
   storeListsResponse(field: string, resp: ApiResponse, page: number) {
     if (page === 1) {
       // this.lists[field].data.length = 0;
-      this.lists[field].data = resp.data.data;
+      field = field.replace('/', '-');
+      this.lists[field] = resp.response;
     } else {
       // this.lists[field].data = this.lists[field].data.concat(resp.response.data);
     }
