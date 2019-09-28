@@ -9,21 +9,16 @@
 
   <div class="right-section">
     <div class="fields-container">
-      <div class="login-title" [hidden]="forgotPassword" translate>Login</div>
-      <div class="forgot-title" [hidden]="!forgotPassword" translate>Forgot password</div>
+      <div class="login-title" [hidden]="forgotPassword" translate></div>
+      <!--      <div class="forgot-title" [hidden]="!forgotPassword" translate>Forgot password</div>-->
       <form (ngSubmit)="login()" [formGroup]="loginForm" [hidden]="forgotPassword" novalidate>
         <div class="login-error" [hidden]="!error || isLoading" translate>
           email or password incorrect.
         </div>
         <br />
         <div class="login-fields" fxLayout="column">
-          <!--          <mat-form-field appearance="outline">-->
-          <!--            <mat-label>Outline form field</mat-label>-->
-          <!--            <input matInput placeholder="Placeholder">-->
-          <!--            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
-          <!--            <mat-hint>Hint</mat-hint>-->
-          <!--          </mat-form-field>-->
-
+          <span class="welcome-msg">Welcome to school name</span>
+          <span class="login-msg">Log In</span>
           <mat-form-field [hideRequiredMarker]="true" appearance="outline">
             <mat-label>{{ 'validations.login.username' | translate }}</mat-label>
             <input
@@ -61,7 +56,7 @@
               <span translate>Password is required</span>
             </mat-error>
           </mat-form-field>
-          <mat-checkbox class="checkBox" formControlName="remember" translate>Remember me</mat-checkbox>
+          <!--          <mat-checkbox class="checkBox" formControlName="remember" translate>Remember me</mat-checkbox>-->
           <br />
           <button
             class="login-btn"
@@ -73,50 +68,50 @@
           >
             <span translate>Login</span>
           </button>
-          <div class="forget-password">
-            <img src="../../../../assets/password-reset.png" class="pass-reset" />
-            <a class="underline-none" href="javascript:" (click)="forgotPassword = !forgotPassword">
-              {{ 'forget_password' | translate }}
-            </a>
-          </div>
+          <!--          <div class="forget-password">-->
+          <!--            <img src="../../../../assets/password-reset.png" class="pass-reset"/>-->
+          <!--            <a class="underline-none" href="javascript:" (click)="forgotPassword = !forgotPassword">-->
+          <!--              {{ 'forget_password' | translate }}-->
+          <!--            </a>-->
+          <!--          </div>-->
         </div>
       </form>
 
-      <form (ngSubmit)="resetPassword()" [formGroup]="forgetForm" [hidden]="!forgotPassword" novalidate>
-        <div class="login-error" [hidden]="!error || isLoading" translate>
-          {{ this.error }}
-        </div>
-        <br />
-        <div class="login-fields" fxLayout="column">
-          <mat-form-field [hideRequiredMarker]="true">
-            <input
-              type="text"
-              matInput
-              formControlName="email"
-              autocomplete="email"
-              [placeholder]="'Email' | translate"
-              required
-            />
-            <mat-error *ngIf="forgetForm.controls.email.invalid && forgetForm.controls.email.touched">
-              <span translate>Email is required</span>
-            </mat-error>
-          </mat-form-field>
-          <br />
-          <button
-            class="reset-btn"
-            mat-raised-button
-            color="primary"
-            type="submit"
-            [disabled]="(forgetForm.invalid && forgetForm.controls.email.touched) || isLoading"
-            [ngClass]="{ disabled: (forgetForm.invalid && forgetForm.controls.email.touched) || isLoading }"
-          >
-            <span translate>Send</span>
-          </button>
-        </div>
-      </form>
+      <!--      <form (ngSubmit)="resetPassword()" [formGroup]="forgetForm" [hidden]="!forgotPassword" novalidate>-->
+      <!--        <div class="login-error" [hidden]="!error || isLoading" translate>-->
+      <!--          {{ this.error }}-->
+      <!--        </div>-->
+      <!--        <br/>-->
+      <!--        <div class="login-fields" fxLayout="column">-->
+      <!--          <mat-form-field [hideRequiredMarker]="true">-->
+      <!--            <input-->
+      <!--              type="text"-->
+      <!--              matInput-->
+      <!--              formControlName="email"-->
+      <!--              autocomplete="email"-->
+      <!--              [placeholder]="'Email' | translate"-->
+      <!--              required-->
+      <!--            />-->
+      <!--            <mat-error *ngIf="forgetForm.controls.email.invalid && forgetForm.controls.email.touched">-->
+      <!--              <span translate>Email is required</span>-->
+      <!--            </mat-error>-->
+      <!--          </mat-form-field>-->
+      <!--          <br/>-->
+      <!--          <button-->
+      <!--            class="reset-btn"-->
+      <!--            mat-raised-button-->
+      <!--            color="primary"-->
+      <!--            type="submit"-->
+      <!--            [disabled]="(forgetForm.invalid && forgetForm.controls.email.touched) || isLoading"-->
+      <!--            [ngClass]="{ disabled: (forgetForm.invalid && forgetForm.controls.email.touched) || isLoading }"-->
+      <!--          >-->
+      <!--            <span translate>Send</span>-->
+      <!--          </button>-->
+      <!--        </div>-->
+      <!--      </form>-->
     </div>
     <div class="login-footer-img">
-      <img src="../../../../assets/Component 4 – 1.png" alt="BUS" />
+      <img src="../../../../assets/Component 4 – 2.png" alt="BUS" />
     </div>
   </div>
 </div>
