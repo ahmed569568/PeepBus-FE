@@ -114,7 +114,7 @@ export abstract class RootService {
    * Archive Item
    */
   archive(id: number) {
-    return this.doArchive(this.getFunctionURL('delete/' + id));
+    return this.doArchive(this.getFunctionURL(`${id}/archive`));
   }
 
   /**
