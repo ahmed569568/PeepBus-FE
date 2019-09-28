@@ -15,6 +15,10 @@ const routes: Routes = [
       loadChildren: './drivers/drivers.module#DriversModule'
     },
     {
+      path: 'buses',
+      loadChildren: './buses/buses.module#BusesModule'
+    },
+    {
       path: 'users',
       loadChildren: './users-feature/users.module#UsersModule'
     },

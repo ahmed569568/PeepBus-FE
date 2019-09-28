@@ -1,17 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CoreFormComponent } from '@app/core/components/core-form/core-form.component';
-import { DriversService } from '@app/drivers/drivers.service';
+import { BusesService } from '@app/buses/buses.service';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UtilitiesService } from '@app/shared/services/utilities.service';
 
 @Component({
-  selector: 'app-drivers-form',
+  selector: 'app-buses-form',
   templateUrl: '../../../core/components/core-form/core-form.component.html'
 })
-export class DriversFormComponent extends CoreFormComponent implements OnInit, OnDestroy {
+export class BusesFormComponent extends CoreFormComponent implements OnInit, OnDestroy {
   constructor(
-    service: DriversService,
+    service: BusesService,
     fb: FormBuilder,
     activatedRoute: ActivatedRoute,
     private utilities: UtilitiesService

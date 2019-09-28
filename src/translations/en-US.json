@@ -98,7 +98,8 @@
     "users": "Users",
     "specifications": "Specifications",
     "drivers": "Drivers",
-    "control": "Control"
+    "control": "Control",
+    "buses": "Buses"
   },
   "check-in": {
     "title": "Check-in"
@@ -145,10 +146,11 @@
     "role": "Role",
     "branch": "Branch"
   },
-  "cars": {
-    "title": "Cars",
+  "vehicles": {
+    "title": "Buses",
+    "name": "Name",
     "pincode": "Pin Code",
-    "title_single": "Car",
+    "title_single": "Bus",
     "plate_number": "Plate Number",
     "fleet_number": "Fleet Number",
     "brand_id": "Brand",

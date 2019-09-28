@@ -9,6 +9,11 @@ export class MenuItems {
       title: 'drivers',
       url: '/drivers',
       icon: 'person'
+    },
+    {
+      title: 'buses',
+      url: '/buses',
+      icon: 'directions_bus'
     }
   ];
 }
