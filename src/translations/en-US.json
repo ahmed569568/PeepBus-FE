@@ -149,6 +149,10 @@
   "vehicles": {
     "title": "Buses",
     "name": "Name",
+    "driver_id": "Driver Name",
+    "group_id": "Group Name",
+    "device_type": "Device type",
+    "imei": "IMEI",
     "pincode": "Pin Code",
     "title_single": "Bus",
     "plate_number": "Plate Number",

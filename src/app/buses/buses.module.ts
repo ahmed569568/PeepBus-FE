@@ -14,7 +14,7 @@ import { extract } from '@app/core';
     RouterModule.forChild([
       {
         path: '',
-        data: { title: extract('buses.title') },
+        data: { title: extract('vehicles.title') },
         component: BusesListComponent,
         children: [
           {
