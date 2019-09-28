@@ -1,6 +1,20 @@
 <div class="listOptions" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
-  <h3>{{ listOptions.customTitle ? (listOptions.customTitle | translate) : (controller + '.title' | translate) }}</h3>
-  <div>
+  <div class="title-container" *ngIf="controller === 'drivers'" fxFlex="70" fxLayoutGap="10">
+    <div class="img-container">
+      <img class="shadow-img" src="../../../../assets/Component 4 – 1.png" />
+      <img class="front-img" *ngIf="controller === 'drivers'" src="../../../../assets/Component 3 – 1.png" />
+    </div>
+    <div class="title-container" fxFlex fxLayout="column">
+      <h3 fxFlex>
+        {{ listOptions.customTitle ? (listOptions.customTitle | translate) : (controller + '.title' | translate) }}
+      </h3>
+      <div fxFlex fxLayout="row">
+        <span fxFlex><mat-icon>linked</mat-icon><span class="number">16 </span><span>linked driver</span></span>
+        <span fxFlex><mat-icon>link_off</mat-icon><span class="number">5 </span><span>not linked driver</span></span>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="20">
     <button
       mat-button
       *ngIf="listOptions.add"
@@ -10,15 +24,14 @@
       (click)="doAction('add')"
     >
       {{ 'common.add' | translate }}
-      <mat-icon>add</mat-icon>
     </button>
-    <button
-      mat-button
-      [matTooltip]="'common.refresh' | translate"
-      (click)="doAction('resetList')"
-      title="{{ 'common.refresh' | translate }}"
-    >
-      <mat-icon>refresh</mat-icon>
-    </button>
+    <!--    <button-->
+    <!--      mat-button-->
+    <!--      [matTooltip]="'common.refresh' | translate"-->
+    <!--      (click)="doAction('resetList')"-->
+    <!--      title="{{ 'common.refresh' | translate }}"-->
+    <!--    >-->
+    <!--      <mat-icon>refresh</mat-icon>-->
+    <!--    </button>-->
   </div>
 </div>

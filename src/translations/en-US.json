@@ -99,7 +99,9 @@
     "specifications": "Specifications",
     "drivers": "Drivers",
     "control": "Control",
-    "buses": "Buses"
+    "buses": "Buses",
+    "student": "Student",
+    "settings": "Settings"
   },
   "check-in": {
     "title": "Check-in"
@@ -284,7 +286,9 @@
     "login": {
       "username-required": "Username is Required",
       "password-required": "Password is Required",
-      "incorrectCredentials": "Incorrect username or password"
+      "incorrectCredentials": "Incorrect username or password",
+      "username": "Username",
+      "password": "Password"
     },
     "forget": {
       "email-invalid": "Invalid Email"
