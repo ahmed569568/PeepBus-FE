@@ -96,7 +96,9 @@
     "brands": "Brands",
     "models": "Models",
     "users": "Users",
-    "specifications": "Specifications"
+    "specifications": "Specifications",
+    "drivers": "Drivers",
+    "control": "Control"
   },
   "check-in": {
     "title": "Check-in"
@@ -294,5 +296,14 @@
     "previous": "Prev",
     "items": "Items",
     "of": "Of"
+  },
+  "drivers": {
+    "title": "Drivers",
+    "title_single": "Driver",
+    "password": "Password",
+    "image": "Image",
+    "name": "Name",
+    "phone": "Phone",
+    "language_id": "Language"
   }
 }
