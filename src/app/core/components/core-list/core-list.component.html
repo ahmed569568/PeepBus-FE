@@ -2,19 +2,26 @@
   <mat-card style="height: 100%; padding: 0">
     <mat-card-content style="display: flex; flex-direction: row; justify-content: center">
       <div style="flex: 1">
-        <app-list-grid-options
-          [controller]="cid"
-          [listOptions]="listOptions"
-          (doActionEvent)="doAction($event)"
-        ></app-list-grid-options>
-        <app-list-grid
-          [controller]="cid"
-          [columns]="columns"
-          [options]="listOptions"
-          [service]="service"
-          [searchable]="listOptions.searchable"
-        ></app-list-grid>
-        <app-pagination [options]="listOptions" [service]="service"></app-pagination>
+        <div fxFlex fxLayout="column">
+          <div fxLayout="row" class="listOptions">
+            <app-list-grid-summary fxFlex="80" [controller]="cid" [listOptions]="listOptions"> </app-list-grid-summary>
+            <app-list-grid-options
+              fxFlex="20"
+              [controller]="cid"
+              [listOptions]="listOptions"
+              (doActionEvent)="doAction($event)"
+            ></app-list-grid-options>
+          </div>
+
+          <app-list-grid
+            [controller]="cid"
+            [columns]="columns"
+            [options]="listOptions"
+            [service]="service"
+            [searchable]="listOptions.searchable"
+          ></app-list-grid>
+          <app-pagination [options]="listOptions" [service]="service"></app-pagination>
+        </div>
       </div>
       <div [hidden]="!myOutlet.isActivated" style="flex: 1">
         <router-outlet #myOutlet="outlet"></router-outlet>

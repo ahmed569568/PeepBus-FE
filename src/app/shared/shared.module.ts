@@ -19,6 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './filter.pipe';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { ControlErrorsComponent } from '@app/shared/components/control-errors/control-errors.component';
+import { ListGridSummaryComponent } from '@app/shared/components/list-grid-summary/list-grid-summary.component';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { ControlErrorsComponent } from '@app/shared/components/control-errors/co
     SecuredDirective,
     AppTooltipDirective,
     FilterPipe,
-    DialogComponent
+    DialogComponent,
+    ListGridSummaryComponent
   ],
   exports: [
     CommonModule,
@@ -65,7 +67,8 @@ import { ControlErrorsComponent } from '@app/shared/components/control-errors/co
     SecuredDirective,
     AppTooltipDirective,
     DialogComponent,
-    ControlErrorsComponent
+    ControlErrorsComponent,
+    ListGridSummaryComponent
   ],
   entryComponents: [DialogComponent]
 })
