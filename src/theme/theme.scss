@@ -65,16 +65,28 @@ body {
   }
 }
 
+.form-title {
+  font-size: 32px;
+  margin: 8px 8px;
+  font-weight: 600;
+}
+
 .imageUploader {
-  width: 100%;
+  width: 120px;
+  height: 120px;
   padding: 5px;
-  height: 53px;
-  border-radius: 4px;
+  border-radius: 8px;
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
-  border: 1px dashed #5069e4;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  background-color: #f0f6ff;
+  //border: 1px dashed #5069e4;
+  //box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  margin-bottom: 16px;
+
+  mat-icon {
+    font-size: 72px;
+    color: #b6d2fc;
+  }
 
   .addNew {
     width: 100%;
@@ -82,6 +94,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    & > img {
+      margin: 0 auto;
+      width: 80%;
+      border-radius: 8px;
+    }
 
     .browse {
       border-radius: 4px;
