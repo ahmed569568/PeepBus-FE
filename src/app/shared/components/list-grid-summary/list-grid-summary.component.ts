@@ -15,9 +15,7 @@ export class ListGridSummaryComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.controller);
-  }
+  ngOnInit() {}
 
   doAction(actionType: string, options?: {}) {
     this.doActionEvent.emit({ actionType, options });
