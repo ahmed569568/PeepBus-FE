@@ -3,7 +3,8 @@
     <div style="flex: 1">
       <div fxFlex fxLayout="column">
         <div fxLayout="row" class="listOptions">
-          <app-list-grid-summary fxFlex="80" [controller]="cid" [listOptions]="listOptions"> </app-list-grid-summary>
+          <app-list-grid-summary fxFlex="80" [controller]="cid" [service]="service" [listOptions]="listOptions">
+          </app-list-grid-summary>
 
           <app-list-grid-options
             fxFlex="20"

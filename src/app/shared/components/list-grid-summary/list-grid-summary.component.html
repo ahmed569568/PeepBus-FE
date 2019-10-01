@@ -1,23 +1,23 @@
 <div class="listOptions" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
   <!--drivers-->
-  <div class="title-container" *ngIf="controller === 'drivers'" fxFlex="auto" fxLayoutGap="10">
-    <div class="img-container">
-      <img class="shadow-img" src="../../../../assets/driver-shadow.png" alt="" />
-      <img class="front-img" src="../../../../assets/driver-front.png" alt="" />
-    </div>
-    <div class="title-container" fxFlex fxLayout="column">
-      <h3 fxFlex>
-        {{ listOptions.customTitle ? (listOptions.customTitle | translate) : (controller + '.title' | translate) }}
-      </h3>
-      <div fxFlex fxLayout="row">
-        <span fxFlex><mat-icon>linked</mat-icon><span class="number">16 </span><span>linked driver</span></span>
-        <span fxFlex><mat-icon>link_off</mat-icon><span class="number">5 </span><span>not linked driver</span></span>
-      </div>
-    </div>
-  </div>
+  <!--  <div class="title-container" *ngIf="controller === 'drivers'" fxFlex="auto" fxLayoutGap="10">-->
+  <!--    <div class="img-container">-->
+  <!--      <img class="shadow-img" src="../../../../assets/driver-shadow.png" alt="" />-->
+  <!--      <img class="front-img" src="../../../../assets/driver-front.png" alt="" />-->
+  <!--    </div>-->
+  <!--    <div class="title-container" fxFlex fxLayout="column">-->
+  <!--      <h3 fxFlex>-->
+  <!--        {{ listOptions.customTitle ? (listOptions.customTitle | translate) : (controller + '.title' | translate) }}-->
+  <!--      </h3>-->
+  <!--      <div fxFlex fxLayout="row" *ngIf="summary?.length > 0">-->
+  <!--        <span fxFlex><mat-icon>linked</mat-icon><span class="number">{{summary[0]?.linked_driver}} </span><span>linked driver</span></span>-->
+  <!--        <span fxFlex><mat-icon>link_off</mat-icon><span class="number">{{summary[0]?.not_linked}} </span><span>not linked driver</span></span>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 
   <!--buses-->
-  <div class="title-container" *ngIf="controller === 'vehicles'" fxFlex="auto" fxLayoutGap="10">
+  <div class="title-container" fxFlex="auto" fxLayoutGap="10" *ngIf="summary?.length > 0">
     <div class="img-container">
       <img class="shadow-img" src="../../../../assets/buses.png" alt="" />
     </div>
@@ -26,45 +26,35 @@
         {{ listOptions.customTitle ? (listOptions.customTitle | translate) : (controller + '.title' | translate) }}
       </h3>
       <div fxFlex fxLayout="row">
-        <span fxFlex class="mrg-btm"
-          ><mat-icon>linked</mat-icon><span class="number">16 </span><span>linked driver</span></span
+        <span fxFlex class="mrg-btm" *ngIf="summary[0]?.linked_driver"
+          ><mat-icon>linked</mat-icon><span class="number">{{ summary[0]?.linked_driver }} </span
+          ><span>linked driver</span></span
         >
-        <span fxFlex class="mrg-btm"
-          ><mat-icon>link_off</mat-icon><span class="number">5 </span><span>not linked driver</span></span
+        <span fxFlex class="mrg-btm" *ngIf="summary[0]?.not_linked"
+          ><mat-icon>link_off</mat-icon><span class="number">{{ summary[0]?.not_linked }} </span
+          ><span>not linked driver</span></span
+        >
+        <span fxFlex class="mrg-btm" *ngIf="summary[0]?.driver_linked"
+          ><mat-icon>linked</mat-icon><span class="number">{{ summary[0]?.driver_linked }} </span
+          ><span>linked driver</span></span
+        >
+        <span fxFlex class="mrg-btm" *ngIf="summary[0]?.driver_not_linked"
+          ><mat-icon>link_off</mat-icon><span class="number">{{ summary[0]?.driver_not_linked }} </span
+          ><span>not linked driver</span></span
         >
       </div>
       <div fxFlex fxLayout="column">
-        <span fxFlex class="mrg-btm">
+        <span fxFlex class="mrg-btm" *ngIf="summary[0]?.students_linked">
           <img class="icon-image" src="../../../../assets/account-badge.png" alt="IMAGE" />
-          <span class="number">156 </span>
+          <span class="number">{{ summary[0]?.students_linked }} </span>
           <span>children like bus</span>
         </span>
-        <span fxFlex class="mrg-btm">
+        <span fxFlex class="mrg-btm" *ngIf="summary[0]?.students_not_linked">
           <img class="icon-image" src="../../../../assets/account-badge-alert-outline.png" alt="IMAGE" />
-          <span class="number-wrong">50 </span>
+          <span class="number-wrong">{{ summary[0]?.students_not_linked }} </span>
           <span>children</span>
         </span>
       </div>
     </div>
   </div>
 </div>
-<!--  <div fxFlex="20">-->
-<!--    <button-->
-<!--      mat-button-->
-<!--      *ngIf="listOptions.add"-->
-<!--      [ngClass]="{ disabled: mode === 'add' }"-->
-<!--      [disabled]="mode === 'add'"-->
-<!--      [secured]="controller + '-add'"-->
-<!--      (click)="doAction('add')"-->
-<!--    >-->
-<!--      {{ 'common.add' | translate }}-->
-<!--    </button>-->
-<!--    <button-->
-<!--      mat-button-->
-<!--      [matTooltip]="'common.refresh' | translate"-->
-<!--      (click)="doAction('resetList')"-->
-<!--      title="{{ 'common.refresh' | translate }}"-->
-<!--    >-->
-<!--      <mat-icon>refresh</mat-icon>-->
-<!--    </button>-->
-<!--  </div>-->

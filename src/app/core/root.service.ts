@@ -278,6 +278,22 @@ export abstract class RootService {
   }
 
   /**
+   * Generic Show Action Request
+   * @param id: Item Identifier
+   */
+  fetchSummary() {
+    return this.doFetchSummary(this.getFunctionURL(`summary`));
+  }
+
+  doFetchSummary(url: string) {
+    return this.api.get(url).pipe(
+      map((response: ApiResponse) => {
+        return response.response;
+      })
+    );
+  }
+
+  /**
    * define the grid list items (columns)
    */
   abstract get featureProps(): ItemProps[];
