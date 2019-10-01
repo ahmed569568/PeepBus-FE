@@ -103,9 +103,10 @@
     "specifications": "Specifications",
     "drivers": "Drivers",
     "control": "Control",
-    "buses": "Buses",
+    "vehicles": "Buses",
     "student": "Student",
-    "settings": "Settings"
+    "settings": "Settings",
+    "students": "Students"
   },
   "check-in": {
     "title": "Check-in"
@@ -198,7 +199,11 @@
       "employeeOut": "Employee Out",
       "employeeIn": "Employee In",
       "nodata": "No history data found"
-    }
+    },
+    "driver_image": "Driver Image",
+    "number": "Number",
+    "students_count": "Students Count",
+    "capacity": "Capacity"
   },
   "specs": {
     "title": "Specifications",
@@ -319,5 +324,14 @@
     "name": "Name",
     "phone": "Phone",
     "language_id": "Language"
+  },
+  "students": {
+    "student_image": "Student Image",
+    "name": "Name",
+    "title": "Students",
+    "title_single": "Student",
+    "status": "Status",
+    "gender": "Gender",
+    "quantity": "Quantity"
   }
 }
