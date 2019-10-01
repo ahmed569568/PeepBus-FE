@@ -29,7 +29,6 @@ export class ListGridSummaryComponent implements OnInit {
   loadResources(): void {
     this.service.fetchSummary().subscribe(
       (response: any) => {
-        console.log(response);
         this.summary = response;
       },
       (err: any) => {

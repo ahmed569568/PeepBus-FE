@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CoreFormComponent } from '@app/core/components/core-form/core-form.component';
-import { BusesService } from '@app/buses/buses.service';
+import { VehiclesService } from '@app/vehicles/vehicles.service';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UtilitiesService } from '@app/shared/services/utilities.service';
@@ -9,9 +9,9 @@ import { UtilitiesService } from '@app/shared/services/utilities.service';
   selector: 'app-buses-form',
   templateUrl: '../../../core/components/core-form/core-form.component.html'
 })
-export class BusesFormComponent extends CoreFormComponent implements OnInit, OnDestroy {
+export class VehiclesFormComponent extends CoreFormComponent implements OnInit, OnDestroy {
   constructor(
-    service: BusesService,
+    service: VehiclesService,
     fb: FormBuilder,
     activatedRoute: ActivatedRoute,
     private utilities: UtilitiesService
@@ -20,7 +20,23 @@ export class BusesFormComponent extends CoreFormComponent implements OnInit, OnD
   }
 
   initLists() {
-    this.lists = [{ ['drivers/languages']: 1 }];
+    this.lists = [
+      {
+        ['vehicles/drivers']: 1
+      },
+      {
+        ['vehicles/groups']: 1
+      },
+      {
+        ['vehicles/warehouses']: 1
+      },
+      // {
+      //   ['vehicles/clients']: 1
+      // },
+      {
+        ['vehicles/locations']: 1
+      }
+    ];
   }
 
   // refactorItem(item: any): any {

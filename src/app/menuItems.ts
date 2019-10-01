@@ -6,8 +6,8 @@ export class MenuItems {
       icon: 'desktop_windows'
     },
     {
-      title: 'buses',
-      url: '/buses',
+      title: 'vehicles',
+      url: '/vehicles',
       icon: 'directions_bus'
     },
     {

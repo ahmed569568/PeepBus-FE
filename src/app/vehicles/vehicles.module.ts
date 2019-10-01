@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BusesListComponent } from './components/buses-list/buses-list.component';
-import { BusesFormComponent } from './components/buses-form/buses-form.component';
+import { VehiclesListComponent } from './components/vehicles-list/vehicles-list.component';
+import { VehiclesFormComponent } from './components/vehicles-form/vehicles-form.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@app/shared/shared.module';
 import { extract } from '@app/core';
 
 @NgModule({
-  declarations: [BusesListComponent, BusesFormComponent],
+  declarations: [VehiclesListComponent, VehiclesFormComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -15,19 +15,19 @@ import { extract } from '@app/core';
       {
         path: '',
         data: { title: extract('vehicles.title') },
-        component: BusesListComponent,
+        component: VehiclesListComponent,
         children: [
           {
             path: 'create',
-            component: BusesFormComponent
+            component: VehiclesFormComponent
           },
           {
             path: 'edit/:id',
-            component: BusesFormComponent
+            component: VehiclesFormComponent
           }
         ]
       }
     ])
   ]
 })
-export class BusesModule {}
+export class VehiclesModule {}

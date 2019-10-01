@@ -101,7 +101,6 @@ export class ListGridComponent implements OnInit, OnDestroy {
       case 'edit':
         return this.router.navigate([`${this.controller}/${type}/${id}`]);
       case 'view':
-        console.log(`${this.controller}/${type}/${id}`);
         return this.router.navigate([`${this.controller}/${type}/${id}`]);
       case 'clone':
         return this.router.navigate([`${this.controller}/${type}/${id}`]);
