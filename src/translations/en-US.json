@@ -29,7 +29,11 @@
     "user_profile": "User Profile",
     "save": "Save",
     "branches": "Branches",
-    "show": "Show"
+    "show": "Show",
+    "password": "Password",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone"
   },
   "auth": {
     "login": {

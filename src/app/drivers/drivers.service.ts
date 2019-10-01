@@ -43,7 +43,16 @@ export class DriversService extends RootService {
         prop: 'phone',
         listing: true,
         formField: true,
-        formFieldType: 'text',
+        formFieldType: 'phone',
+        required: true,
+        width: 300
+      },
+      {
+        name: 'email',
+        prop: 'email',
+        listing: true,
+        formField: true,
+        formFieldType: 'email',
         required: true,
         width: 300
       },

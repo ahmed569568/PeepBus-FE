@@ -1,20 +1,21 @@
 <div class="table-overflow">
   <div class="tbl-content">
     <table class="table table-hover">
-      <thead class="tbl-header" *ngIf="rows?.data?.length !== 0">
-        <tr>
-          <ng-container *ngFor="let column of columns">
-            <ng-container *ngIf="column.listing">
-              <th [style.width.px]="column.width" style="height: 42px !important;">
-                {{ controller + '.' + column.name | translate }}
-              </th>
-            </ng-container>
-          </ng-container>
-          <th *ngIf="hasActions()" class="actions-head action-column-width">
-            {{ 'common.actions' | translate }}
-          </th>
-        </tr>
-      </thead>
+      <!--      <thead class="tbl-header" *ngIf="rows?.data?.length !== 0">-->
+      <!--        <tr>-->
+      <!--          <ng-container *ngFor="let column of columns">-->
+      <!--            <ng-container *ngIf="column.listing">-->
+      <!--              <th [style.width.px]="column.width" style="height: 42px !important;">-->
+      <!--                {{ controller + '.' + column.name | translate }}-->
+      <!--              </th>-->
+      <!--            </ng-container>-->
+      <!--          </ng-container>-->
+      <!--          <th *ngIf="hasActions()" class="actions-head action-column-width">-->
+      <!--            {{ 'common.actions' | translate }}-->
+      <!--          </th>-->
+      <!--        </tr>-->
+      <!--      </thead>-->
+
       <tbody>
         <ng-container *ngIf="rows?.data?.length === 0">
           <h3 class="ion-text-center">{{ 'msg.no_data_founds' | translate }}</h3>
@@ -23,6 +24,7 @@
           <ng-container *ngFor="let column of columns">
             <td *ngIf="column.displayType === 'image'">
               <img *ngIf="getValue(row, column.prop)" width="40" [src]="getValue(row, column.prop)" alt="" />
+              <img width="40" src="../../../../assets/man.jpg" alt="placeholder" />
             </td>
             <!-- Image TD -->
             <td *ngIf="column.displayType === 'color'">
@@ -54,36 +56,37 @@
             </td>
             <!-- Text TD -->
           </ng-container>
-          <td *ngIf="hasActions()" class="action-column-width actions-data-row">
-            <div class="actions-buttons">
-              <ng-container>
-                <button
-                  *ngIf="options.view"
-                  [secured]="controller + '-index'"
-                  [matTooltip]="'common.view' | translate"
-                  (click)="doAction('view', row.id)"
-                >
-                  <mat-icon>visibility</mat-icon>
-                </button>
-                <button
-                  *ngIf="options.edit"
-                  [secured]="controller + '-update'"
-                  [matTooltip]="'common.edit' | translate"
-                  (click)="doAction('edit', row.id)"
-                >
-                  <mat-icon>edit</mat-icon>
-                </button>
-                <button
-                  *ngIf="options.archive"
-                  [secured]="controller + '-delete'"
-                  [matTooltip]="'common.delete' | translate"
-                  (click)="openDialog(row, 'archive')"
-                >
-                  <mat-icon>delete</mat-icon>
-                </button>
-              </ng-container>
-            </div>
-          </td>
+
+          <!--          <td *ngIf="hasActions()" class="action-column-width actions-data-row">-->
+          <!--            <div class="actions-buttons">-->
+          <!--              <ng-container>-->
+          <!--                <button-->
+          <!--                  *ngIf="options.view"-->
+          <!--                  [secured]="controller + '-index'"-->
+          <!--                  [matTooltip]="'common.view' | translate"-->
+          <!--                  (click)="doAction('view', row.id)"-->
+          <!--                >-->
+          <!--                  <mat-icon>visibility</mat-icon>-->
+          <!--                </button>-->
+          <!--                <button-->
+          <!--                  *ngIf="options.edit"-->
+          <!--                  [secured]="controller + '-update'"-->
+          <!--                  [matTooltip]="'common.edit' | translate"-->
+          <!--                  (click)="doAction('edit', row.id)"-->
+          <!--                >-->
+          <!--                  <mat-icon>edit</mat-icon>-->
+          <!--                </button>-->
+          <!--                <button-->
+          <!--                  *ngIf="options.archive"-->
+          <!--                  [secured]="controller + '-delete'"-->
+          <!--                  [matTooltip]="'common.delete' | translate"-->
+          <!--                  (click)="openDialog(row, 'archive')"-->
+          <!--                >-->
+          <!--                  <mat-icon>delete</mat-icon>-->
+          <!--                </button>-->
+          <!--              </ng-container>-->
+          <!--            </div>-->
+          <!--          </td>-->
           <ng-container> </ng-container>
         </tr>
       </tbody>
