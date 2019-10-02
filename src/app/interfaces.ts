@@ -73,4 +73,5 @@ export interface ListOptions {
   groups: boolean;
   hoverData: object;
   searchable?: boolean;
+  listTypes?: string[];
 }

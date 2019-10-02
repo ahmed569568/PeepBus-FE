@@ -11,6 +11,7 @@ import { VehiclesService } from '@app/vehicles/vehicles.service';
 export class VehiclesListComponent extends CoreListComponent implements OnInit {
   constructor(service: VehiclesService, us: UtilitiesService, router: Router) {
     super(service, us, router);
+    this.listOptions.listTypes = ['All', 'Link Driver', 'Not Linked', 'Child', 'Not Child'];
   }
 
   ngOnInit() {

@@ -6,13 +6,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./list-type.component.scss']
 })
 export class ListTypeComponent implements OnInit {
-  @Input() groupView: any;
   @Input() listOptions: any;
-  @Input() controller: any;
   @Input() service: any;
-
-  @Output() switchViewEvent: EventEmitter<any> = new EventEmitter();
-  @Output() doActionEvent: EventEmitter<any> = new EventEmitter();
 
   summary: any;
 
@@ -36,9 +31,5 @@ export class ListTypeComponent implements OnInit {
         // this.service.errorHandle(err);
       }
     );
-  }
-
-  doAction(actionType: string, options?: {}) {
-    this.doActionEvent.emit({ actionType, options });
   }
 }

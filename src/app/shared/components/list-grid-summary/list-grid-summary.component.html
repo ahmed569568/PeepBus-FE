@@ -1,22 +1,4 @@
 <div class="listOptions" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
-  <!--drivers-->
-  <!--  <div class="title-container" *ngIf="controller === 'drivers'" fxFlex="auto" fxLayoutGap="10">-->
-  <!--    <div class="img-container">-->
-  <!--      <img class="shadow-img" src="../../../../assets/driver-shadow.png" alt="" />-->
-  <!--      <img class="front-img" src="../../../../assets/driver-front.png" alt="" />-->
-  <!--    </div>-->
-  <!--    <div class="title-container" fxFlex fxLayout="column">-->
-  <!--      <h3 fxFlex>-->
-  <!--        {{ listOptions.customTitle ? (listOptions.customTitle | translate) : (controller + '.title' | translate) }}-->
-  <!--      </h3>-->
-  <!--      <div fxFlex fxLayout="row" *ngIf="summary?.length > 0">-->
-  <!--        <span fxFlex><mat-icon>linked</mat-icon><span class="number">{{summary[0]?.linked_driver}} </span><span>linked driver</span></span>-->
-  <!--        <span fxFlex><mat-icon>link_off</mat-icon><span class="number">{{summary[0]?.not_linked}} </span><span>not linked driver</span></span>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </div>-->
-
-  <!--vehicles-->
   <div class="title-container" fxFlex="auto" fxLayoutGap="10" *ngIf="summary?.length > 0">
     <div class="img-container">
       <img class="shadow-img" src="../../../../assets/buses.png" alt="" />

@@ -330,7 +330,8 @@
     "image": "Image",
     "name": "Name",
     "phone": "Phone",
-    "language_id": "Language"
+    "language_id": "Language",
+    "email": "Email"
   },
   "students": {
     "student_image": "Student Image",
