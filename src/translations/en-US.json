@@ -33,7 +33,14 @@
     "password": "Password",
     "name": "Name",
     "email": "Email",
-    "phone": "Phone"
+    "phone": "Phone",
+    "all": "All",
+    "archive": "Archive",
+    "in_trip": "In Trip",
+    "stop": "Stop",
+    "link_driver": "Link Driver",
+    "not_child": "Not Child",
+    "child": "Child"
   },
   "auth": {
     "login": {

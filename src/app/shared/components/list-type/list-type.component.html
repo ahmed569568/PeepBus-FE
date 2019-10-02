@@ -1,0 +1,14 @@
+<div class="listOptions" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+  <button mat-button>{{ 'common.all' | translate }}</button>
+  <button *ngIf="controller === 'buses'" mat-button>{{ 'common.in_trip' | translate }}</button>
+  <button *ngIf="controller === 'buses'" mat-button>{{ 'common.stop' | translate }}</button>
+  <button *ngIf="controller === 'students' || controller === 'driver'" mat-button>
+    {{ 'common.link_driver' | translate }}
+  </button>
+  <button *ngIf="controller === 'students' || controller === 'driver'" mat-button>
+    {{ 'common.not_linked' | translate }}
+  </button>
+  <button *ngIf="controller === 'students'" mat-button>{{ 'common.archive' | translate }}</button>
+  <button *ngIf="controller === 'buses'" mat-button>{{ 'common.child' | translate }}</button>
+  <button *ngIf="controller === 'buses'" mat-button>{{ 'common.not_child' | translate }}</button>
+</div>
