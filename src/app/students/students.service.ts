@@ -26,7 +26,8 @@ export class StudentsService extends RootService {
         prop: 'image',
         listing: true,
         displayType: 'image',
-        formField: false,
+        formField: true,
+        formFieldType: 'file_input',
         width: 50
       },
       {

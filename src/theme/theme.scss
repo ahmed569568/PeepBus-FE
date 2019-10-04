@@ -82,6 +82,7 @@ body {
   //border: 1px dashed #5069e4;
   //box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
   margin-bottom: 16px;
+  cursor: pointer;
 
   mat-icon {
     font-size: 72px;
@@ -145,4 +146,8 @@ app-roles-list {
 
 .mrg-btm {
   margin-bottom: 8px;
+}
+
+app-list-type {
+  margin: 10px;
 }

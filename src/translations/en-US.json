@@ -33,7 +33,14 @@
     "password": "Password",
     "name": "Name",
     "email": "Email",
-    "phone": "Phone"
+    "phone": "Phone",
+    "all": "All",
+    "archive": "Archive",
+    "in_trip": "In Trip",
+    "stop": "Stop",
+    "link_driver": "Link Driver",
+    "not_child": "Not Child",
+    "child": "Child"
   },
   "auth": {
     "login": {
@@ -323,7 +330,8 @@
     "image": "Image",
     "name": "Name",
     "phone": "Phone",
-    "language_id": "Language"
+    "language_id": "Language",
+    "email": "Email"
   },
   "students": {
     "student_image": "Student Image",
@@ -332,6 +340,10 @@
     "title_single": "Student",
     "status": "Status",
     "gender": "Gender",
-    "quantity": "Quantity"
+    "quantity": "Quantity",
+    "parent": "Parent",
+    "desc": "Description",
+    "address": "Address",
+    "location_id": "Location"
   }
 }

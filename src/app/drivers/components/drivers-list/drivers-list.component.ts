@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class DriversListComponent extends CoreListComponent implements OnInit {
   constructor(service: DriversService, us: UtilitiesService, router: Router) {
     super(service, us, router);
+
+    this.listOptions.listTypes = ['All', 'Link Driver', 'Not Linked'];
   }
 
   ngOnInit() {

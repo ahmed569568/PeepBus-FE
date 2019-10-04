@@ -11,6 +11,8 @@ import { StudentsService } from '@app/students/students.service';
 export class StudentsListComponent extends CoreListComponent implements OnInit {
   constructor(service: StudentsService, us: UtilitiesService, router: Router) {
     super(service, us, router);
+
+    this.listOptions.listTypes = ['All', 'Link Driver', 'Not Linked', 'Archive'];
   }
 
   ngOnInit() {

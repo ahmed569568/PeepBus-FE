@@ -27,7 +27,8 @@ export class CoreListComponent implements OnInit, OnDestroy {
     groups: false,
     searchable: false,
     customTitle: '',
-    hoverData: { status: false }
+    hoverData: { status: false },
+    listTypes: []
   };
   params: any = { pagination: 20 };
   pageNumber = 1;
