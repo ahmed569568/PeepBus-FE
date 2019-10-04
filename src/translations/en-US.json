@@ -340,6 +340,10 @@
     "title_single": "Student",
     "status": "Status",
     "gender": "Gender",
-    "quantity": "Quantity"
+    "quantity": "Quantity",
+    "parent": "Parent",
+    "desc": "Description",
+    "address": "Address",
+    "location_id": "Location"
   }
 }

@@ -1,4 +1,4 @@
-<div class="listOptions" fxFlex fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10">
+<div class="listOptions" fxFlex fxLayout="row" fxLayoutAlign="flex-end center" fxLayoutGap="12px">
   <button
     mat-button
     *ngIf="listOptions.add"
@@ -15,7 +15,6 @@
     (click)="doAction('resetList')"
     title="{{ 'common.refresh' | translate }}"
   >
-    <!--    {{ 'common.refresh' | translate }}-->
     <mat-icon>refresh</mat-icon>
   </button>
 </div>

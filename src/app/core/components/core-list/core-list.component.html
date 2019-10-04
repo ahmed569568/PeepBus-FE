@@ -2,12 +2,12 @@
   <div style="display: flex; flex-direction: row; justify-content: center">
     <div style="flex: 1">
       <div fxFlex fxLayout="column">
-        <div fxLayout="row" class="listOptions">
-          <app-list-grid-summary fxFlex="80" [controller]="cid" [service]="service" [listOptions]="listOptions">
+        <div fxLayout="row">
+          <app-list-grid-summary fxFlex="60" [controller]="cid" [service]="service" [listOptions]="listOptions">
           </app-list-grid-summary>
 
           <app-list-grid-options
-            fxFlex="20"
+            fxFlex="40"
             [controller]="cid"
             [listOptions]="listOptions"
             (doActionEvent)="doAction($event)"
