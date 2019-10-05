@@ -29,6 +29,10 @@ const routes: Routes = [
     {
       path: 'students',
       loadChildren: './students/students.module#StudentsModule'
+    },
+    {
+      path: 'settings',
+      loadChildren: './settings/settings.module#SettingsModule'
     }
   ]),
   // Fallback when no prior route is matched
