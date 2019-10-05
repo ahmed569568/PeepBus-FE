@@ -20,12 +20,7 @@
               <mat-icon class="menuIcon">{{ item.icon }}</mat-icon>
               <span>{{ 'menu.' + item.title | translate }}</span>
             </a>
-            <mat-expansion-panel
-              routerLinkActive="active"
-              class="menuDropDown"
-              style="background: #242d42;padding: 0;border-bottom: 1px solid #2a3348;"
-              *ngIf="item?.children?.length > 0"
-            >
+            <mat-expansion-panel routerLinkActive="active" class="menuDropDown" *ngIf="item?.children?.length > 0">
               <mat-expansion-panel-header>
                 <span>
                   <mat-icon class="menuIcon">{{ item.icon }}</mat-icon>

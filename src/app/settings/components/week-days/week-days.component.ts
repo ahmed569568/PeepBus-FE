@@ -7,6 +7,8 @@ import { ApiRequestService } from '@app/core/http/api-request.service';
   styleUrls: ['./week-days.component.scss']
 })
 export class WeekDaysComponent implements OnInit {
+  weekDays: string[] = ['saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+
   constructor(private api: ApiRequestService) {}
 
   ngOnInit() {}
