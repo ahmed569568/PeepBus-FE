@@ -6,6 +6,9 @@ import { ShiftsComponent } from './components/shifts/shifts.component';
 import { RouterModule } from '@angular/router';
 import { extract } from '@app/core';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
+import { MaterialModule } from '@app/material.module';
+import { FlexModule } from '@angular/flex-layout';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [WeekDaysComponent, VacationDaysComponent, ShiftsComponent, UserSettingsComponent],
@@ -34,7 +37,10 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
           }
         ]
       }
-    ])
+    ]),
+    MaterialModule,
+    FlexModule,
+    TranslateModule
   ]
 })
 export class SettingsModule {}

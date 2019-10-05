@@ -113,7 +113,11 @@
     "vehicles": "Buses",
     "student": "Student",
     "settings": "Settings",
-    "students": "Students"
+    "students": "Students",
+    "weekdays": "Weekdays",
+    "user_settings": "User Settings",
+    "vacation": "Vacation Days",
+    "shifts": "Shifts"
   },
   "check-in": {
     "title": "Check-in"
@@ -345,5 +349,11 @@
     "desc": "Description",
     "address": "Address",
     "location_id": "Location"
+  },
+  "settings": {
+    "weekdays": "Weekdays",
+    "title": "Settings",
+    "general-settings": "General Settings",
+    "logo": "School Logo"
   }
 }
