@@ -1,3 +1,32 @@
-<!--<h2>{{'settings.general-settings' | translate}}</h2>-->
+<div fxFlex fxLayout="column">
+  <h2>{{ 'settings.general-settings' | translate }}</h2>
 
-<!--<h3>{{'settings.logo' | translate}}</h3>-->
+  <h3>{{ 'settings.logo' | translate }}</h3>
+
+  <form [formGroup]="form">
+    <div class="photo-upload">
+      <input type="file" (change)="readURL($event)" />
+      <img id="blah" [src]="imageSrc || '../../../../assets/img-alt.png'" alt="your image" />
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'settings.school_name' | translate }}</mat-label>
+      <input type="text" matInput [formControlName]="form" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'settings.email' | translate }}</mat-label>
+      <input type="email" matInput [formControlName]="form" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'settings.website' | translate }}</mat-label>
+      <input type="website" matInput [formControlName]="form" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'settings.phone' | translate }}</mat-label>
+      <input type="mobile" matInput [formControlName]="form" />
+    </mat-form-field>
+  </form>
+</div>

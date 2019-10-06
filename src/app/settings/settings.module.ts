@@ -9,6 +9,7 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
 import { MaterialModule } from '@app/material.module';
 import { FlexModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [WeekDaysComponent, VacationDaysComponent, ShiftsComponent, UserSettingsComponent],
@@ -40,7 +41,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ]),
     MaterialModule,
     FlexModule,
-    TranslateModule
+    TranslateModule,
+    ReactiveFormsModule
   ]
 })
 export class SettingsModule {}

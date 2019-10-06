@@ -354,6 +354,10 @@
     "weekdays": "Weekdays",
     "title": "Settings",
     "general-settings": "General Settings",
-    "logo": "School Logo"
+    "logo": "School Logo",
+    "school_name": "School Name",
+    "email": "Email",
+    "website": "Website",
+    "phone": "Phone"
   }
 }
