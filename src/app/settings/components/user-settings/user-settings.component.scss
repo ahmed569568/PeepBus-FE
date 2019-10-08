@@ -1,3 +1,27 @@
 :host {
   padding: 18px;
 }
+.photo-upload {
+  position: relative;
+
+  input {
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  img {
+    padding: 8px;
+    border: 1px dashed #0063f4;
+    border-radius: 8px;
+    background-size: auto;
+    width: 120px;
+    height: 120px;
+  }
+}
+
+mat-form-field {
+  width: 75%;
+}

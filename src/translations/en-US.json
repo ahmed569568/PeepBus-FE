@@ -348,12 +348,17 @@
     "parent": "Parent",
     "desc": "Description",
     "address": "Address",
-    "location_id": "Location"
+    "location_id": "Location",
+    "full_name": "Full Name"
   },
   "settings": {
     "weekdays": "Weekdays",
     "title": "Settings",
     "general-settings": "General Settings",
-    "logo": "School Logo"
+    "logo": "School Logo",
+    "school_name": "School Name",
+    "email": "Email",
+    "website": "Website",
+    "phone": "Phone"
   }
 }
