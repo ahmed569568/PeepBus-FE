@@ -348,7 +348,8 @@
     "parent": "Parent",
     "desc": "Description",
     "address": "Address",
-    "location_id": "Location"
+    "location_id": "Location",
+    "full_name": "Full Name"
   },
   "settings": {
     "weekdays": "Weekdays",

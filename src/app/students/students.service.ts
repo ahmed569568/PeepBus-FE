@@ -23,7 +23,7 @@ export class StudentsService extends RootService {
     return [
       {
         name: 'student_image',
-        prop: 'image',
+        prop: 'parent.image',
         listing: true,
         displayType: 'image',
         formField: true,
@@ -56,6 +56,41 @@ export class StudentsService extends RootService {
         required: true
       },
       {
+        name: 'location_id',
+        prop: 'location.address',
+        listing: false,
+        formField: true,
+        formFieldType: 'select',
+        listPrefix: 'students-locations',
+        width: 300
+      },
+      {
+        name: 'quantity',
+        prop: 'quantity',
+        listing: true,
+        formField: true,
+        required: true,
+        width: 100
+      },
+      {
+        name: 'student_image',
+        prop: 'image',
+        listing: true,
+        displayType: 'image',
+        formField: true,
+        formFieldType: 'file_input',
+        width: 50
+      },
+      {
+        name: 'full_name',
+        prop: 'name',
+        listing: true,
+        formField: true,
+        formFieldType: 'text',
+        required: true,
+        width: 100
+      },
+      {
         name: 'status',
         prop: 'status',
         listing: true,
@@ -72,23 +107,6 @@ export class StudentsService extends RootService {
         formField: true,
         formFieldType: 'select',
         listPrefix: 'students-gender',
-        required: true,
-        width: 100
-      },
-      {
-        name: 'location_id',
-        prop: 'location.address',
-        listing: false,
-        formField: true,
-        formFieldType: 'select',
-        listPrefix: 'students-locations',
-        width: 300
-      },
-      {
-        name: 'quantity',
-        prop: 'quantity',
-        listing: true,
-        formField: true,
         required: true,
         width: 100
       }
