@@ -6,6 +6,11 @@
   flex-wrap: nowrap;
 }
 
+.splitArea {
+  display: flex;
+  flex-direction: row;
+}
+
 .container {
   // text-align: center;
   .period-chart {

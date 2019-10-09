@@ -1,7 +1,4 @@
-<div class="container">
-  <mat-card>
-    <mat-card-content fxLayout="column">
-      not implemented yet. :D
-    </mat-card-content>
-  </mat-card>
+<div class="container splitArea">
+  <app-vehicles-list style="flex: 1"></app-vehicles-list>
+  <app-map id="mainMap" style="flex: 1" [mapConfig]="{}" [mapId]="'control'" [service]="service"></app-map>
 </div>

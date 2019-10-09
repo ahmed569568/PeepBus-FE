@@ -159,3 +159,7 @@ app-list-type {
 .fff {
   height: 300px;
 }
+
+#mainMap #map-layout {
+  height: var(--mapHeight);
+}

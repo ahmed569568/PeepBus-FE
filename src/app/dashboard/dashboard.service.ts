@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RootService } from '@app/core/root.service';
 import { ApiRequestService } from '@app/core/http/api-request.service';
-import { ApiResponse } from '@app/interfaces';
+import { ApiResponse, ItemProps } from '@app/interfaces';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -14,21 +14,22 @@ export class DashboardService extends RootService {
     super(toast, router, api);
   }
 
-  get featureProps(): [] {
-    return [];
+  routerPrefix(val: string = '') {
+    return val ? val : 'drivers';
   }
 
-  loadData(branchId: number) {
-    let query;
-    if (branchId) {
-      query = `?branch_id=${branchId}`;
-    } else {
-      query = '';
-    }
-    return this.api.get(`operations/statistics${query}`, '').pipe(
-      map((resp: ApiResponse) => {
-        return resp.data;
-      })
-    );
+  get featureProps(): ItemProps[] {
+    return [
+      {
+        name: 'image',
+        prop: 'image',
+        listing: true,
+        formField: true,
+        displayType: 'image',
+        formFieldType: 'file_input',
+        required: true,
+        width: 300
+      }
+    ];
   }
 }

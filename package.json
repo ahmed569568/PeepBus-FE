@@ -34,6 +34,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@ngx-translate/core": "^11.0.1",
+    "@types/ol": "^5.3.5",
     "angular-tippy": "0.0.3",
     "chart.js": "^2.8.0",
     "escape-string-regexp": "^2.0.0",
