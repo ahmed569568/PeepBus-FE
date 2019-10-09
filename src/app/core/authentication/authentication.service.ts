@@ -41,6 +41,7 @@ export class AuthenticationService {
       map((resp: ApiResponse) => {
         if (resp.status_code === 200) {
           const credentials = {
+            // id: resp.response.id,
             token: resp.response.user_token.access_token
           };
           this.credentialsService.setCredentials(credentials, context.remember);

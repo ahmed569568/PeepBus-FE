@@ -3,30 +3,36 @@
 
   <h3>{{ 'settings.logo' | translate }}</h3>
 
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="photo-upload">
-      <input type="file" accept="image/*" />
+      <input type="file" accept="image/*" (change)="uploadPhoto($event, 'image')" />
       <img id="blah" [src]="imageSrc || '../../../../assets/img-alt.png'" alt="your image" />
     </div>
 
     <mat-form-field appearance="outline">
       <mat-label>{{ 'settings.school_name' | translate }}</mat-label>
-      <input type="text" matInput [formControlName]="form" />
+      <input type="text" matInput [formControlName]="'school_name'" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>{{ 'settings.email' | translate }}</mat-label>
-      <input type="email" matInput [formControlName]="form" />
+      <input type="email" matInput [formControlName]="'school_email'" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>{{ 'settings.website' | translate }}</mat-label>
-      <input type="website" matInput [formControlName]="form" />
+      <input type="website" matInput [formControlName]="'website'" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>{{ 'settings.phone' | translate }}</mat-label>
-      <input type="mobile" matInput [formControlName]="form" />
+      <input type="mobile" matInput [formControlName]="'phone'" />
     </mat-form-field>
+    <div>
+      implement map here to determine location from lat, lng point
+    </div>
+    <div class="container">
+      <button class="submit" mat-button type="submit" [disabled]="!form.valid">{{ 'common.save' | translate }}</button>
+    </div>
   </form>
 </div>
