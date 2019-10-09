@@ -10,11 +10,13 @@ import { MaterialModule } from '@app/material.module';
 import { FlexModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
   declarations: [WeekDaysComponent, VacationDaysComponent, ShiftsComponent, UserSettingsComponent],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: '',

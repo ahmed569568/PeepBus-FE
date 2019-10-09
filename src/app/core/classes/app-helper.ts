@@ -24,7 +24,7 @@ export class AppHelper {
     const listHeight = window.innerHeight - deletedSpaces - 30;
     const mapHeight = window.innerHeight - (header ? header.offsetHeight : 0);
     document.documentElement.style.setProperty('--allHeight', listHeight + 'px');
-    document.documentElement.style.setProperty('--mapHeight', mapHeight + 'px');
+    // document.documentElement.style.setProperty('--mapHeight', mapHeight + 'px');
   }
 
   /**

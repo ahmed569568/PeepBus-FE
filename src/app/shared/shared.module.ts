@@ -18,10 +18,12 @@ import { AppTooltipDirective } from '@app/shared/directives/app-tooltip-directiv
 import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './filter.pipe';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { MapComponent } from './components/map/map.component';
 import { ControlErrorsComponent } from '@app/shared/components/control-errors/control-errors.component';
 import { ListGridSummaryComponent } from '@app/shared/components/list-grid-summary/list-grid-summary.component';
 import { ListTypeComponent } from '@app/shared/components/list-type/list-type.component';
 import { ListGridSearchComponent } from '@app/shared/components/list-grid-search/list-grid-search.component';
+import { AngularOpenlayersModule } from 'ngx-openlayers';
 
 @NgModule({
   imports: [
@@ -35,7 +37,8 @@ import { ListGridSearchComponent } from '@app/shared/components/list-grid-search
     NgxSpinnerModule,
     ColorPickerModule,
     NgTippyModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AngularOpenlayersModule
   ],
   declarations: [
     ChartComponent,
@@ -50,7 +53,8 @@ import { ListGridSearchComponent } from '@app/shared/components/list-grid-search
     DialogComponent,
     ListGridSummaryComponent,
     ListTypeComponent,
-    ListGridSearchComponent
+    ListGridSearchComponent,
+    MapComponent
   ],
   exports: [
     CommonModule,
@@ -63,6 +67,8 @@ import { ListGridSearchComponent } from '@app/shared/components/list-grid-search
     ColorPickerModule,
     NgTippyModule,
     ToastrModule,
+    AngularOpenlayersModule,
+
     ChartComponent,
     ListGridComponent,
     ListGridOptionsComponent,
@@ -74,7 +80,8 @@ import { ListGridSearchComponent } from '@app/shared/components/list-grid-search
     ControlErrorsComponent,
     ListGridSummaryComponent,
     ListTypeComponent,
-    ListGridSearchComponent
+    ListGridSearchComponent,
+    MapComponent
   ],
   entryComponents: [DialogComponent]
 })

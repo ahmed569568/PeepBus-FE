@@ -28,9 +28,26 @@
       <mat-label>{{ 'settings.phone' | translate }}</mat-label>
       <input type="mobile" matInput [formControlName]="'phone'" />
     </mat-form-field>
-    <div>
-      implement map here to determine location from lat, lng point
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'settings.address' | translate }}</mat-label>
+      <input type="mobile" matInput [formControlName]="'address'" />
+    </mat-form-field>
+
+    <!--    <mat-form-field appearance="outline">-->
+    <!--      <mat-label>{{ 'settings.lat' | translate }}</mat-label>-->
+    <!--      <input type="mobile" matInput [formControlName]="'lat'" />-->
+    <!--    </mat-form-field>-->
+
+    <!--    <mat-form-field appearance="outline">-->
+    <!--      <mat-label>{{ 'settings.lng' | translate }}</mat-label>-->
+    <!--      <input type="mobile" matInput [formControlName]="'lng'" />-->
+    <!--    </mat-form-field>-->
+
+    <div id="map-layout">
+      <app-map [mapId]="'client_settings_form'" [mapConfig]="mapConfigs" [service]="null"></app-map>
     </div>
+
     <div class="container">
       <button class="submit" mat-button type="submit" [disabled]="!form.valid">{{ 'common.save' | translate }}</button>
     </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiRequestService } from '@app/core/http/api-request.service';
 import { CredentialsService } from '@app/core';
+import { MapService } from '@app/shared/services/map.service';
 
 @Component({
   selector: 'app-user-settings',
@@ -14,11 +15,37 @@ export class UserSettingsComponent implements OnInit {
   imageFieldName: string;
   userID: number;
 
-  constructor(private fb: FormBuilder, private api: ApiRequestService, private credentials: CredentialsService) {}
+  lat = 51.678418;
+  lng = 7.809007;
+
+  mapConfigs = {
+    field: 'points',
+    type: 'single',
+    drawing: true,
+    drawingType: 'Point'
+  };
+
+  constructor(
+    private fb: FormBuilder,
+    private api: ApiRequestService,
+    private credentials: CredentialsService,
+    private mapService: MapService
+  ) {}
 
   ngOnInit() {
     this.userID = this.credentials.credentials ? this.credentials.credentials.id : null;
     this.initForm();
+    this.fetchAddress();
+  }
+
+  fetchAddress() {
+    this.mapService.getLocation.subscribe(data => {
+      if (data.location) {
+        this.form.controls.address.setValue(data.location.display_name);
+        this.form.controls.lng.setValue(data.coords[0]);
+        this.form.controls.lat.setValue(data.coords[1]);
+      }
+    });
   }
 
   initForm() {
@@ -27,7 +54,10 @@ export class UserSettingsComponent implements OnInit {
       school_email: [''],
       website: [''],
       image: [''],
-      phone: ['']
+      phone: [''],
+      address: [{ value: '', disabled: true }],
+      lat: [''],
+      lng: ['']
     });
   }
 
