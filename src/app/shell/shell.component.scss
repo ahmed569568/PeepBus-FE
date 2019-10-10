@@ -5,6 +5,8 @@
 
 .mat-expansion-panel {
   box-shadow: none;
+  border-radius: 0;
+  color: white;
 
   .mat-expansion-panel-header {
     padding: 0 16px;
@@ -13,12 +15,6 @@
   .mat-expansion-panel-body {
     padding: 0;
   }
-}
-
-.mat-sidenav {
-  min-width: 270px;
-  max-width: 28%;
-  padding-top: 28px;
 }
 
 .has-border {
@@ -70,12 +66,6 @@
       font-weight: bold;
     }
   }
-}
-
-.mat-expansion-panel {
-  border-radius: 0;
-  color: white;
-  //background: #2a3348;
 }
 
 .menuIcon {
@@ -175,4 +165,24 @@
   right: 5px;
   background-image: url("../../assets/menubg.png");
   background-size: cover;
+}
+
+.side-menu {
+  max-width: 28%;
+  padding-top: 28px;
+  position: fixed;
+
+  &.wide-menu {
+    min-width: 270px;
+  }
+
+  &.narrow-menu {
+    min-width: 20px;
+
+    .logo,
+    .menu-title,
+    .side-menu-bg {
+      display: none;
+    }
+  }
 }
