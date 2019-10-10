@@ -22,28 +22,29 @@ export class MenuItems {
     },
     {
       title: 'settings',
+      url: '/settings/user-settings',
       icon: 'build',
       children: [
         {
           title: 'user_settings',
           url: '/settings/user-settings',
           icon: ''
-        },
-        {
-          title: 'weekdays',
-          url: '/settings/weekdays',
-          icon: ''
-        },
-        {
-          title: 'vacation',
-          url: '/settings/vacation',
-          icon: ''
-        },
-        {
-          title: 'shifts',
-          url: '/settings/shifts',
-          icon: ''
         }
+        // {
+        //   title: 'weekdays',
+        //   url: '/settings/weekdays',
+        //   icon: ''
+        // },
+        // {
+        //   title: 'vacation',
+        //   url: '/settings/vacation',
+        //   icon: ''
+        // },
+        // {
+        //   title: 'shifts',
+        //   url: '/settings/shifts',
+        //   icon: ''
+        // }
       ]
     }
   ];
