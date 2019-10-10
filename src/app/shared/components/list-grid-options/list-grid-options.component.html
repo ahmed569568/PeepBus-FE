@@ -13,12 +13,12 @@
   <button
     mat-button
     *ngIf="controller === 'students'"
-    [ngClass]="{ disabled: mode === 'add' }"
-    [disabled]="mode === 'add'"
     [secured]="controller + '-add'"
     (click)="openDialog('add')"
+    [ngClass]="{ disabled: mode === 'add' }"
+    [disabled]="mode === 'add'"
   >
-    {{ 'common.add' | translate }}
+    {{ 'common.add_student' | translate }}
   </button>
 
   <button
