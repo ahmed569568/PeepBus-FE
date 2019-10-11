@@ -15,6 +15,7 @@ export const environment = {
   hmr: true,
   version: env.npm_package_version + '-dev',
   serverUrl: 'http://35.243.244.23:8000/api/admin/',
+  socketUrl: 'http://35.243.244.23:3200/admins',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'ar-SA']
 };

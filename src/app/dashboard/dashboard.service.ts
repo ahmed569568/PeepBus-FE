@@ -15,21 +15,56 @@ export class DashboardService extends RootService {
   }
 
   routerPrefix(val: string = '') {
-    return val ? val : 'drivers';
+    return val ? val : 'control';
+  }
+
+  listPrepareOperations(data: any) {
+    data = { response: { data: data.response } };
+    return data;
+  }
+
+  storeResourceListResponse(response: any) {
+    super.storeResourceListResponse(response);
+    this.lists.control = response.response;
   }
 
   get featureProps(): ItemProps[] {
     return [
       {
-        name: 'image',
-        prop: 'image',
+        name: 'number',
+        prop: 'number',
         listing: true,
-        formField: true,
-        displayType: 'image',
-        formFieldType: 'file_input',
-        required: true,
-        width: 300
+        formField: false,
+        width: 100
       }
+      // {
+      //   name: 'driver_id',
+      //   prop: 'driver_id',
+      //   listing: true,
+      //   formField: false,
+      //   width: 100
+      // },
+      // {
+      //   name: 'status',
+      //   prop: 'status',
+      //   listing: true,
+      //   formField: false,
+      //   width: 100
+      // },
+      // {
+      //   name: 'driver_name',
+      //   prop: 'driver.name',
+      //   listing: true,
+      //   formField: false,
+      //   width: 100
+      // },
+      // {
+      //   name: 'driver_phone',
+      //   prop: 'driver.phone',
+      //   listing: true,
+      //   formField: false,
+      //   width: 100
+      // }
     ];
   }
 }

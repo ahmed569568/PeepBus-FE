@@ -1,4 +1,4 @@
-<div class="pagination" id="pagination">
+<div class="pagination" id="pagination" *ngIf="options.pagination">
   <div *ngIf="pagination.total !== 0">
     <span class="light">
       <span class="form-to-page"> {{ pagination.from }}-{{ pagination.to }} </span> {{ 'pagination.of' | translate }}

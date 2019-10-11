@@ -24,6 +24,22 @@
           ><mat-icon>link_off</mat-icon><span class="number">{{ summary[0]?.driver_not_linked }} </span
           ><span>not linked driver</span></span
         >
+        <span fxFlex class="mrg-btm" *ngIf="summary[0]?.bus_in_ride"
+          ><mat-icon>link_off</mat-icon><span class="number">{{ summary[0]?.bus_in_ride }} </span
+          ><span>bus_in_ride</span></span
+        >
+        <span fxFlex class="mrg-btm" *ngIf="summary[0]?.bus_stop"
+          ><mat-icon>link_off</mat-icon><span class="number">{{ summary[0]?.bus_stop }} </span
+          ><span>bus_stop</span></span
+        >
+        <span fxFlex class="mrg-btm" *ngIf="summary[0]?.student_not_in_ride"
+          ><mat-icon>link_off</mat-icon><span class="number">{{ summary[0]?.student_not_in_ride }} </span
+          ><span>student_not_in_ride</span></span
+        >
+        <span fxFlex class="mrg-btm" *ngIf="summary[0]?.students_in_ride"
+          ><mat-icon>link_off</mat-icon><span class="number">{{ summary[0]?.students_in_ride }} </span
+          ><span>students_in_ride</span></span
+        >
       </div>
       <div fxFlex fxLayout="column">
         <span fxFlex class="mrg-btm" *ngIf="summary[0]?.students_linked">

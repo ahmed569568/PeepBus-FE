@@ -74,4 +74,5 @@ export interface ListOptions {
   hoverData: object;
   searchable?: boolean;
   listTypes?: string[];
+  pagination?: boolean;
 }

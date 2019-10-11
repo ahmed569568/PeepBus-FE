@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-list-grid-search',
@@ -6,6 +6,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./list-grid-search.component.scss']
 })
 export class ListGridSearchComponent implements OnInit {
+  @Input() service: any;
+
   constructor() {}
 
   ngOnInit() {}

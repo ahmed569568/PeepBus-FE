@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { Pagination, RowData } from '@app/interfaces';
+import { ListOptions, Pagination, RowData } from '@app/interfaces';
 import { UtilitiesService } from '../../services/utilities.service';
 import { I18nService } from '@app/core';
 
@@ -11,9 +11,7 @@ import { I18nService } from '@app/core';
 export class PaginationComponent implements OnInit, OnChanges {
   // Inputs
   @Input() service: any;
-  @Input() options: {
-    itemsPerPage: [];
-  };
+  @Input() options: ListOptions;
 
   // Props
   pages: any[] = [];

@@ -54,6 +54,7 @@
     "ol": "^6.0.1",
     "ol-proj": "^1.1.0",
     "rxjs": "^6.5.2",
+    "socket.io-client": "^2.3.0",
     "tippy.js": "^4.3.4",
     "zone.js": "^0.9.1"
   },
@@ -70,6 +71,7 @@
     "@types/jasminewd2": "^2.0.3",
     "@types/lodash": "^4.14.112",
     "@types/node": "^10.9.0",
+    "@types/socket.io-client": "^1.4.32",
     "codelyzer": "^5.1.0",
     "hads": "^2.0.1",
     "htmlhint": "^0.11.0",

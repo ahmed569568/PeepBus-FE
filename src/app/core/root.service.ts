@@ -18,7 +18,8 @@ export abstract class RootService {
     roles: { data: [] },
     brands: { data: [] },
     branches: { data: [] },
-    models: { data: [] }
+    models: { data: [] },
+    control: { data: [] }
   };
 
   protected constructor(protected toast: ToastrService, protected router?: Router, protected api?: ApiRequestService) {

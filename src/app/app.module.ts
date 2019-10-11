@@ -13,6 +13,7 @@ import { ShellModule } from './shell/shell.module';
 import { AuthModule } from './auth/auth.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SocketService } from '@app/core/http/socket.service';
 
 @NgModule({
   imports: [
@@ -30,7 +31,11 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
-  providers: [],
+  providers: [SocketService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(public socket: SocketService) {
+    this.socket.connect();
+  }
+}
