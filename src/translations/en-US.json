@@ -353,7 +353,7 @@
     "desc": "Description",
     "address": "Address",
     "location_id": "Location",
-    "full_name": "Full Name"
+    "parent_full_name": "Full Name"
   },
   "settings": {
     "weekdays": "Weekdays",
