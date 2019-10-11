@@ -1,13 +1,19 @@
 <div [dir]="currentLang === 'ar-SA' ? 'rtl' : 'ltr'" class="app-container" fxFlex>
   <mat-sidenav-container fxFill>
-    <mat-sidenav #sidenav [mode]="'side'" [opened]="true">
+    <mat-sidenav
+      class="side-menu"
+      #sidenav
+      [mode]="'side'"
+      [opened]="true"
+      [ngClass]="isWide ? 'wide-menu' : 'narrow-menu'"
+    >
       <nav>
         <mat-list>
           <div class="side-menu-header">
-            <button class="side-menu-button" mat-icon-button (click)="sidenav.toggle()">
+            <button class="side-menu-button" mat-icon-button (click)="toggleSidenavSize()">
               <mat-icon>menu</mat-icon>
             </button>
-            <img src="../../assets/logo.png" alt="LOGO" />
+            <img class="logo" src="../../assets/logo.png" alt="LOGO" />
           </div>
           <ng-container *ngFor="let item of menuItems.items; let i = index">
             <a
@@ -17,10 +23,14 @@
               [routerLink]="item.url"
               routerLinkActive="active"
             >
-              <mat-icon class="menuIcon">{{ item.icon }}</mat-icon>
-              <span>{{ 'menu.' + item.title | translate }}</span>
+              <mat-icon class="menuIcon" [matTooltip]="'menu.' + item.title | translate">{{ item.icon }}</mat-icon>
+              <span class="menu-title">{{ 'menu.' + item.title | translate }}</span>
             </a>
-            <mat-expansion-panel routerLinkActive="active" class="menuDropDown" *ngIf="item?.children?.length > 0">
+            <mat-expansion-panel
+              routerLinkActive="active"
+              class="menuDropDown"
+              *ngIf="item?.children?.length > 0 && isWide"
+            >
               <mat-expansion-panel-header>
                 <span>
                   <mat-icon class="menuIcon">{{ item.icon }}</mat-icon>
@@ -36,27 +46,16 @@
               </mat-list>
             </mat-expansion-panel>
           </ng-container>
+
+          <a *ngIf="!isWide" mat-list-item [routerLink]="'/settings/user-settings'" routerLinkActive="active">
+            <mat-icon [matTooltip]="'menu.settings' | translate">build</mat-icon>
+          </a>
         </mat-list>
         <div class="side-menu-bg"></div>
       </nav>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <!--      <mat-toolbar class="mat-elevation-z6">-->
-      <!--        <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">-->
-      <!--          <mat-icon>menu</mat-icon>-->
-      <!--        </button>-->
-      <!--        <div class="container p-0">-->
-      <!--          <div class="user-lang">-->
-      <!--            <button [matTooltip]="'common.change_language' | translate" mat-button>-->
-      <!--              <button (click)="toggleLanguage()" class="userBtn" mat-menu-item>-->
-      <!--                {{ 'languages.' + currentLang | translate }}-->
-      <!--              </button>-->
-      <!--            </button>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </mat-toolbar>-->
-
       <div fx-flex fxLayout="column">
         <router-outlet></router-outlet>
       </div>

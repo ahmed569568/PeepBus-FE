@@ -40,7 +40,8 @@
     "stop": "Stop",
     "link_driver": "Link Driver",
     "not_child": "Not Child",
-    "child": "Child"
+    "child": "Child",
+    "add_student": "Add Student"
   },
   "auth": {
     "login": {
@@ -265,8 +266,11 @@
     "yes": "Yes delete",
     "confirm_message": "Deleting",
     "confirm_delete": "Are you sure?",
+    "exist_new": "Is the student's parent is new or exist?",
     "ex:": "Ex:",
-    "uploadImage": "Upload Image"
+    "uploadImage": "Upload Image",
+    "new_parent": "New Parent",
+    "exist_parent": "Exist Parent"
   },
   "dashboard": {
     "chart": {
@@ -349,7 +353,7 @@
     "desc": "Description",
     "address": "Address",
     "location_id": "Location",
-    "full_name": "Full Name"
+    "parent_full_name": "Full Name"
   },
   "settings": {
     "weekdays": "Weekdays",

@@ -15,6 +15,7 @@ import { UtilitiesService } from '@app/shared/services/utilities.service';
 export class ShellComponent implements OnInit {
   menuItems = new MenuItems();
   environment = environment;
+  isWide = false;
 
   constructor(
     private router: Router,
@@ -65,5 +66,15 @@ export class ShellComponent implements OnInit {
 
   get title(): string {
     return this.titleService.getTitle();
+  }
+
+  toggleSidenavSize() {
+    if (!this.isWide) {
+      this.isWide = true;
+      console.log('wide', this.isWide);
+    } else {
+      this.isWide = false;
+      console.log('narrow', this.isWide);
+    }
   }
 }

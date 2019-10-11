@@ -9,6 +9,18 @@
   >
     {{ 'common.add' | translate }}
   </button>
+
+  <button
+    mat-button
+    *ngIf="controller === 'students'"
+    [secured]="controller + '-add'"
+    (click)="openDialog('add')"
+    [ngClass]="{ disabled: mode === 'add' }"
+    [disabled]="mode === 'add'"
+  >
+    {{ 'common.add_student' | translate }}
+  </button>
+
   <button
     mat-button
     [matTooltip]="'common.refresh' | translate"
