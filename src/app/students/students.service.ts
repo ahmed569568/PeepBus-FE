@@ -82,8 +82,8 @@ export class StudentsService extends RootService {
         width: 50
       },
       {
-        name: 'full_name',
-        prop: 'name',
+        name: 'parent_full_name',
+        prop: 'parent.full_name',
         listing: true,
         formField: true,
         formFieldType: 'text',

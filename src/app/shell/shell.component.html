@@ -23,7 +23,7 @@
               [routerLink]="item.url"
               routerLinkActive="active"
             >
-              <mat-icon class="menuIcon">{{ item.icon }}</mat-icon>
+              <mat-icon class="menuIcon" [matTooltip]="'menu.' + item.title | translate">{{ item.icon }}</mat-icon>
               <span class="menu-title">{{ 'menu.' + item.title | translate }}</span>
             </a>
             <mat-expansion-panel
@@ -48,7 +48,7 @@
           </ng-container>
 
           <a *ngIf="!isWide" mat-list-item [routerLink]="'/settings/user-settings'" routerLinkActive="active">
-            <mat-icon>build</mat-icon>
+            <mat-icon [matTooltip]="'menu.settings' | translate">build</mat-icon>
           </a>
         </mat-list>
         <div class="side-menu-bg"></div>
