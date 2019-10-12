@@ -18,12 +18,12 @@ export class MenuItems {
     {
       title: 'students',
       url: '/students',
-      icon: 'directions_bus'
+      icon: 'school'
     },
     {
       title: 'settings',
       url: '/settings/user-settings',
-      icon: 'build',
+      icon: 'settings_applications',
       children: [
         {
           title: 'user_settings',
