@@ -81,8 +81,6 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: #f0f6ff;
-  //border: 1px dashed #5069e4;
-  //box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
   margin-bottom: 16px;
   cursor: pointer;
 
@@ -99,10 +97,12 @@ body {
     align-items: center;
     border-radius: 8px;
     border: 1px dashed #0063f4;
+    height: 100%;
 
     & > img {
       margin: 0 auto;
       width: 80%;
+      height: 80%;
       border-radius: 8px;
     }
 
