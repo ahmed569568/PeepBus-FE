@@ -25,7 +25,7 @@ export class VehiclesService extends RootService {
         listing: true,
         displayType: 'image',
         formField: false,
-        width: 300
+        width: 150
       },
       {
         name: 'number',
@@ -34,7 +34,7 @@ export class VehiclesService extends RootService {
         formField: true,
         formFieldType: 'text',
         required: true,
-        width: 300
+        width: 200
       },
       {
         name: 'driver_id',
@@ -44,7 +44,7 @@ export class VehiclesService extends RootService {
         formFieldType: 'select',
         listPrefix: 'vehicles-drivers',
         required: true,
-        width: 300
+        width: 200
       },
       {
         name: 'group_id',
@@ -86,7 +86,7 @@ export class VehiclesService extends RootService {
         prop: 'students_count',
         listing: true,
         formField: false,
-        width: 100
+        width: 200
       },
       {
         name: 'capacity',
