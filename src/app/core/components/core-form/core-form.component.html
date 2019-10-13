@@ -93,7 +93,7 @@
                   <img
                     width="30"
                     *ngIf="form.controls[field.name].value"
-                    [src]="imagePath(environment[field.imagePath], form.controls[field.name].value)"
+                    [src]="imagePath(environment[field.imagePath], form.controls[field.name].value, true)"
                     [alt]="field.name"
                   />
                   <img *ngIf="!form.controls[field.name].value" src="../../../../assets/img-alt.png" />

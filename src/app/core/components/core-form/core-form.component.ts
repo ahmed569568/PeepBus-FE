@@ -107,11 +107,15 @@ export class CoreFormComponent implements OnInit, OnDestroy {
     }
   }
 
-  imagePath(prefix: string, value: any) {
+  imagePath(prefix: string, value: any, preview?: boolean) {
     if (value.length < 100) {
       return prefix + value;
     } else {
-      return 'data:image/png;base64,' + value;
+      if (preview) {
+        return value;
+      } else {
+        return 'data:image/png;base64,' + value;
+      }
     }
   }
 
