@@ -67,19 +67,10 @@ export class StudentsService extends RootService {
       {
         name: 'quantity',
         prop: 'quantity',
-        listing: true,
+        listing: false,
         formField: true,
         required: true,
         width: 100
-      },
-      {
-        name: 'student_image',
-        prop: 'image',
-        listing: true,
-        displayType: 'image',
-        formField: true,
-        formFieldType: 'file_input',
-        width: 50
       },
       {
         name: 'parent_full_name',
@@ -103,7 +94,7 @@ export class StudentsService extends RootService {
       {
         name: 'gender',
         prop: 'gender',
-        listing: true,
+        listing: false,
         formField: true,
         formFieldType: 'select',
         listPrefix: 'students-gender',
