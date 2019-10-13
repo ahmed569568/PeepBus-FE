@@ -202,6 +202,8 @@
     "carIn": "Car In",
     "qr-success": "Qr Code Generated Successfully",
     "download": "Download",
+    "location_id": "Location",
+    "warehouse_id": "Warehouse",
     "history": {
       "title": "History",
       "checkOutDate": "Check Out Date",
@@ -363,6 +365,10 @@
     "school_name": "School Name",
     "email": "Email",
     "website": "Website",
-    "phone": "Phone"
+    "phone": "Phone",
+    "address": "Address"
+  },
+  "control": {
+    "number": "Number"
   }
 }
