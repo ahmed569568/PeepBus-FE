@@ -4,6 +4,8 @@ import { ApiRequestService } from '@app/core/http/api-request.service';
 import { ItemProps } from '@app/interfaces';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Validators } from '@angular/forms';
+import { CustomValidators } from '@app/core/classes/custom-validations';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +29,8 @@ export class DriversService extends RootService {
         displayType: 'image',
         formFieldType: 'file_input',
         required: true,
-        width: 300
+        width: 300,
+        validations: [Validators.required]
       },
       {
         name: 'name',
@@ -36,7 +39,8 @@ export class DriversService extends RootService {
         formField: true,
         formFieldType: 'text',
         required: true,
-        width: 300
+        width: 300,
+        validations: [Validators.required]
       },
       {
         name: 'phone',
@@ -45,7 +49,8 @@ export class DriversService extends RootService {
         formField: true,
         formFieldType: 'phone',
         required: true,
-        width: 300
+        width: 300,
+        validations: [Validators.required]
       },
       // {
       //   name: 'email',
@@ -62,7 +67,8 @@ export class DriversService extends RootService {
         listing: false,
         formField: true,
         formFieldType: 'password',
-        required: true
+        required: true,
+        validations: [Validators.required, CustomValidators.validPassword]
       },
       {
         name: 'language_id',
@@ -71,7 +77,8 @@ export class DriversService extends RootService {
         formField: true,
         formFieldType: 'select',
         listPrefix: 'drivers-languages',
-        width: 300
+        width: 300,
+        validations: [Validators.required]
       }
     ];
   }

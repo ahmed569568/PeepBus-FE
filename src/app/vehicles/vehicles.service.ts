@@ -4,6 +4,8 @@ import { ApiRequestService } from '@app/core/http/api-request.service';
 import { ItemProps } from '@app/interfaces';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Validators } from '@angular/forms';
+import { CustomValidators } from '@app/core/classes/custom-validations';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +27,8 @@ export class VehiclesService extends RootService {
         listing: true,
         displayType: 'image',
         formField: false,
-        width: 150
+        width: 150,
+        required: true
       },
       {
         name: 'number',
@@ -34,7 +37,8 @@ export class VehiclesService extends RootService {
         formField: true,
         formFieldType: 'text',
         required: true,
-        width: 200
+        width: 200,
+        validations: [Validators.required]
       },
       {
         name: 'driver_id',
@@ -44,7 +48,8 @@ export class VehiclesService extends RootService {
         formFieldType: 'select',
         listPrefix: 'vehicles-drivers',
         required: true,
-        width: 200
+        width: 200,
+        validations: [Validators.required]
       },
       {
         name: 'group_id',
@@ -53,7 +58,8 @@ export class VehiclesService extends RootService {
         formField: true,
         formFieldType: 'select',
         listPrefix: 'vehicles-groups',
-        width: 300
+        width: 300,
+        validations: [Validators.required]
       },
       {
         name: 'location_id',
@@ -62,7 +68,8 @@ export class VehiclesService extends RootService {
         formField: true,
         formFieldType: 'select',
         listPrefix: 'vehicles-locations',
-        width: 300
+        width: 300,
+        validations: [Validators.required]
       },
       {
         name: 'warehouse_id',
@@ -71,7 +78,8 @@ export class VehiclesService extends RootService {
         formField: true,
         formFieldType: 'select',
         listPrefix: 'vehicles-warehouses',
-        width: 300
+        width: 300,
+        validations: [Validators.required]
       },
       {
         name: 'device_type',
@@ -79,7 +87,8 @@ export class VehiclesService extends RootService {
         listing: false,
         formField: true,
         formFieldType: 'text',
-        width: 300
+        width: 300,
+        validations: [Validators.required]
       },
       {
         name: 'students_count',
@@ -94,7 +103,8 @@ export class VehiclesService extends RootService {
         listing: true,
         formField: true,
         formFieldType: 'text',
-        width: 100
+        width: 100,
+        validations: [Validators.required]
       },
       {
         name: 'imei',
@@ -102,7 +112,8 @@ export class VehiclesService extends RootService {
         listing: false,
         formField: true,
         formFieldType: 'text',
-        width: 300
+        width: 300,
+        validations: [Validators.required]
       }
     ];
   }

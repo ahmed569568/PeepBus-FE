@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiRequestService } from '@app/core/http/api-request.service';
 import { CredentialsService } from '@app/core';
 import { MapService } from '@app/shared/services/map.service';
@@ -64,14 +64,14 @@ export class UserSettingsComponent implements OnInit {
 
   initForm() {
     this.form = this.fb.group({
-      school_name: [''],
-      school_email: [''],
-      website: [''],
-      image: [''],
-      phone: [''],
+      school_name: ['', Validators.required],
+      school_email: ['', Validators.required],
+      website: ['', Validators.required],
+      image: ['', Validators.required],
+      phone: ['', Validators.required],
       address: [{ value: '', disabled: true }],
-      lat: [''],
-      lng: [''],
+      lat: ['', Validators.required],
+      lng: ['', Validators.required],
       location_id: ['']
     });
   }

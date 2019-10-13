@@ -228,8 +228,8 @@ export abstract class RootService {
   }
 
   errorHandle(err: any) {
-    for (const error of Object.keys(err.error.errors)) {
-      this.showError(err.error.errors[error], 'error');
+    for (const error of Object.keys(err.error.error)) {
+      this.showError(err.error.error[error][0], 'error');
     }
   }
 

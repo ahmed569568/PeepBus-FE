@@ -4,6 +4,7 @@ import { ApiRequestService } from '@app/core/http/api-request.service';
 import { ItemProps } from '@app/interfaces';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,8 @@ export class StudentsService extends RootService {
         displayType: 'image',
         formField: true,
         formFieldType: 'file_input',
-        width: 50
+        width: 50,
+        validations: [Validators.required]
       },
       {
         name: 'name',
@@ -37,7 +39,8 @@ export class StudentsService extends RootService {
         formField: true,
         formFieldType: 'text',
         required: true,
-        width: 100
+        width: 100,
+        validations: [Validators.required]
       },
       {
         name: 'desc',
@@ -53,7 +56,8 @@ export class StudentsService extends RootService {
         listing: false,
         formField: true,
         formFieldType: 'text',
-        required: true
+        required: true,
+        validations: [Validators.required]
       },
       {
         name: 'location_id',
@@ -62,7 +66,8 @@ export class StudentsService extends RootService {
         formField: true,
         formFieldType: 'select',
         listPrefix: 'students-locations',
-        width: 300
+        width: 300,
+        validations: [Validators.required]
       },
       {
         name: 'quantity',
@@ -89,7 +94,8 @@ export class StudentsService extends RootService {
         formFieldType: 'select',
         listPrefix: 'students-status',
         required: true,
-        width: 100
+        width: 100,
+        validations: [Validators.required]
       },
       {
         name: 'gender',
@@ -99,7 +105,8 @@ export class StudentsService extends RootService {
         formFieldType: 'select',
         listPrefix: 'students-gender',
         required: true,
-        width: 100
+        width: 100,
+        validations: [Validators.required]
       }
     ];
   }
