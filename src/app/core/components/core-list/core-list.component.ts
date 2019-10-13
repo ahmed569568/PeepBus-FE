@@ -41,7 +41,7 @@ export class CoreListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.utilitiesService.filterObservable$.pipe(takeWhile(() => this.alive)).subscribe(keyword => {
-      this.params = { ...this.params, queryParams: { ['keyword']: keyword } };
+      this.params = { ...this.params, string: keyword };
       return this.loadResources();
     });
     AppHelper.calcListHeight();

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UtilitiesService } from '@app/shared/services/utilities.service';
 
 @Component({
   selector: 'app-list-grid-search',
@@ -7,8 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListGridSearchComponent implements OnInit {
   @Input() service: any;
+  term: string;
 
-  constructor() {}
+  constructor(private us: UtilitiesService) {}
 
   ngOnInit() {}
+
+  search() {
+    // setTimeout(() => {
+    this.us.filter(this.term);
+    // }, 1000);
+  }
 }
