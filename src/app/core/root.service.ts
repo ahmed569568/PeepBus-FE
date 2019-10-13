@@ -130,7 +130,6 @@ export abstract class RootService {
         return this.showSuccess(res.message, 'archived');
       },
       err => {
-        console.log(err);
         this.errorHandle(err);
       }
     );

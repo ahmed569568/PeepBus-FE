@@ -46,7 +46,7 @@ export class CoreFormComponent implements OnInit, OnDestroy {
   alive = true;
 
   environment = environment;
-  imageFieldName: string;
+  imageFieldName: any[] = [];
 
   protected _lists: any = [];
 
@@ -84,7 +84,7 @@ export class CoreFormComponent implements OnInit, OnDestroy {
   }
 
   uploadPhoto(event: any, field: string) {
-    this.imageFieldName = field;
+    this.imageFieldName.push(field);
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -95,10 +95,24 @@ export class CoreFormComponent implements OnInit, OnDestroy {
 
   convertImage(readerEvt: any) {
     const binaryString = readerEvt.target.result;
-    if (this.imageFieldName) {
-      this.imagePath(null, btoa(binaryString));
+    return this.setImagesValue(btoa(binaryString));
+  }
+
+  setImagesValue(base64: string) {
+    if (Object.keys(this.imageFieldName)) {
+      this.imagePath(null, base64);
     }
-    this.form.controls[this.imageFieldName].setValue(btoa(binaryString));
+    for (const fieldName of this.imageFieldName) {
+      this.form.controls[fieldName].setValue(this.imagePath(fieldName, base64));
+    }
+  }
+
+  imagePath(prefix: string, value: any) {
+    if (value.length < 100) {
+      return prefix + value;
+    } else {
+      return 'data:image/png;base64,' + value;
+    }
   }
 
   /**
@@ -204,13 +218,5 @@ export class CoreFormComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.alive = false;
-  }
-
-  imagePath(prefix: string, value: any) {
-    if (value.length < 100) {
-      return prefix + value;
-    } else {
-      return 'data:image/png;base64,' + value;
-    }
   }
 }
