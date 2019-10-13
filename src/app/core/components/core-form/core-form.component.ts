@@ -213,10 +213,7 @@ export class CoreFormComponent implements OnInit, OnDestroy {
         }
       });
     } else {
-      return this.service.createItem(this.form.value).then(() => {
-        this.service.updateResources.next();
-        return this.service.navigateToList();
-      });
+      return this.service.createItem(this.form.value);
     }
   }
 

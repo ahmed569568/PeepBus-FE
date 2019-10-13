@@ -234,6 +234,7 @@ export abstract class RootService {
   }
 
   navigateToList() {
+    this.updateResources.next();
     return this.router.navigate([this.cid]);
   }
 
