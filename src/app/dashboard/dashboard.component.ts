@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DashboardService } from '@app/dashboard/dashboard.service';
 import { SocketService } from '@app/core/http/socket.service';
 import { takeWhile } from 'rxjs/operators';
+import { ApiRequestService } from '@app/core/http/api-request.service';
 
 @Component({
   selector: 'app-dashboard',

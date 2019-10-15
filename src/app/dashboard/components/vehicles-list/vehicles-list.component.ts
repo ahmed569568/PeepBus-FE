@@ -12,6 +12,7 @@ export class VehiclesListComponent extends CoreListComponent implements OnInit {
     super(service, utilitiesService);
     this.listOptions.pagination = false;
     this.listOptions.searchable = false;
+    this.listOptions.add = false;
   }
 
   ngOnInit() {
