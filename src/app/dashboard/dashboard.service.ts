@@ -19,13 +19,14 @@ export class DashboardService extends RootService {
   }
 
   listPrepareOperations(data: any) {
-    data = { response: { data: data.response } };
+    data = { response: { data: data.response.rides, school_location: data.response.school_location } };
     return data;
   }
 
   storeResourceListResponse(response: any) {
     super.storeResourceListResponse(response);
     this.lists.control = response.response;
+    this.centerPoint = response.response.school_location;
   }
 
   get featureProps(): ItemProps[] {

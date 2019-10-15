@@ -141,36 +141,36 @@
         <!--        </ng-container>-->
         <!-- Points in Route Module [View and Edit] -->
 
-        <!--        <ng-container *ngIf="service?.currentItem?.location && mapConfig.type === 'single'">-->
-        <!--          <aol-feature [id]="mapId + '_' + service.currentItem.id">-->
-        <!--            <aol-geometry-point>-->
-        <!--              <aol-coordinate-->
-        <!--                [x]="+service?.currentItem?.location?.lng"-->
-        <!--                [y]="+service?.currentItem?.location?.lat"-->
-        <!--                [srid]="'EPSG:4326'"-->
-        <!--              ></aol-coordinate>-->
-        <!--            </aol-geometry-point>-->
-        <!--            <aol-style>-->
-        <!--              <aol-style-icon-->
-        <!--                src="assets/icon/marker.png"-->
-        <!--                [anchor]="[0.5, 1]"-->
-        <!--                [anchorXUnits]="'fraction'"-->
-        <!--                [anchorYUnits]="'fraction'"-->
-        <!--                [anchorOrigin]="'top-left'"-->
-        <!--              >-->
-        <!--              </aol-style-icon>-->
-        <!--              <aol-style-text-->
-        <!--                [text]="service.currentItem.name"-->
-        <!--                [textAlign]="'center'"-->
-        <!--                [offsetY]="15"-->
-        <!--                [scale]="1.5"-->
-        <!--                [textBaseLine]="'center'"-->
-        <!--              >-->
-        <!--                <aol-style-stroke [color]="'#fff'" [width]="2"></aol-style-stroke>-->
-        <!--              </aol-style-text>-->
-        <!--            </aol-style>-->
-        <!--          </aol-feature>-->
-        <!--        </ng-container>-->
+        <ng-container *ngIf="service?.centerPoint">
+          <aol-feature [id]="mapId + '_' + service?.centerPoint?.id">
+            <aol-geometry-point>
+              <aol-coordinate
+                [x]="+service?.centerPoint?.lng"
+                [y]="+service?.centerPoint?.lat"
+                [srid]="'EPSG:4326'"
+              ></aol-coordinate>
+            </aol-geometry-point>
+            <aol-style>
+              <aol-style-icon
+                src="assets/icon/school.png"
+                [anchor]="[0.5, 1]"
+                [anchorXUnits]="'fraction'"
+                [anchorYUnits]="'fraction'"
+                [anchorOrigin]="'top-left'"
+              >
+              </aol-style-icon>
+              <aol-style-text
+                [text]="'common.school' | translate"
+                [textAlign]="'center'"
+                [offsetY]="15"
+                [scale]="1.5"
+                [textBaseLine]="'center'"
+              >
+                <aol-style-stroke [color]="'#fff'" [width]="2"></aol-style-stroke>
+              </aol-style-text>
+            </aol-style>
+          </aol-feature>
+        </ng-container>
         <!-- Point and Warehouse single view point -->
       </aol-source-vector>
     </aol-layer-vector>

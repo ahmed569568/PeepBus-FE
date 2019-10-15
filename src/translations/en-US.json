@@ -41,7 +41,8 @@
     "link_driver": "Link Driver",
     "not_child": "Not Child",
     "child": "Child",
-    "add_student": "Add Student"
+    "add_student": "Add Student",
+    "school": "School"
   },
   "auth": {
     "login": {

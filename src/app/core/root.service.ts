@@ -21,6 +21,7 @@ export abstract class RootService {
     models: { data: [] },
     control: { data: [] }
   };
+  centerPoint: {} = {};
 
   protected constructor(protected toast: ToastrService, protected router?: Router, protected api?: ApiRequestService) {
     // Initialize the resourceList as empty object.
