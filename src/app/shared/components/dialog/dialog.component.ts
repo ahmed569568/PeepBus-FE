@@ -12,7 +12,7 @@ export class DialogComponent implements OnInit {
 
   ngOnInit() {}
 
-  submit() {
-    this.us.dialog(this.data);
+  submit(optionValue?: number) {
+    this.us.dialog({ ...this.data, optionValue });
   }
 }

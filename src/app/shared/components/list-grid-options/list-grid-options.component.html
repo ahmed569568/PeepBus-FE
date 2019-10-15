@@ -14,9 +14,7 @@
     mat-button
     *ngIf="controller === 'students'"
     [secured]="controller + '-add'"
-    (click)="openDialog('add')"
-    [ngClass]="{ disabled: mode === 'add' }"
-    [disabled]="mode === 'add'"
+    (click)="openDialog('add_student')"
   >
     {{ 'common.add_student' | translate }}
   </button>

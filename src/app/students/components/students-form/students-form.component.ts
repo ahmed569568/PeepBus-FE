@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CoreFormComponent } from '@app/core/components/core-form/core-form.component';
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { UtilitiesService } from '@app/shared/services/utilities.service';
 import { StudentsService } from '@app/students/students.service';
 
@@ -22,7 +22,7 @@ export class StudentsFormComponent extends CoreFormComponent implements OnInit, 
   initLists() {
     this.lists = [
       {
-        ['students/clients']: 1
+        ['students/parents']: 1
       },
       {
         ['students/locations']: 1

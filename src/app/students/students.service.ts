@@ -5,15 +5,26 @@ import { ItemProps } from '@app/interfaces';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Validators } from '@angular/forms';
+import { UtilitiesService } from '@app/shared/services/utilities.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentsService extends RootService {
-  constructor(toast: ToastrService, router: Router, api: ApiRequestService) {
+  constructor(toast: ToastrService, router: Router, api: ApiRequestService, private us: UtilitiesService) {
     super(toast, router, api);
     this.lists['students-status'] = [{ id: 'active', name: 'active' }, { id: 'inactive', name: 'inactive' }];
     this.lists['students-gender'] = [{ id: 'male', name: 'male' }, { id: 'female', name: 'female' }];
+
+    this.us.dialogActionObservable$.subscribe(data => {
+      if (data) {
+        if (data.optionValue) {
+          return this.router.navigate([`${this.cid}/create`], { queryParams: { condition: 'new_parent' } });
+        } else {
+          return this.router.navigate([`${this.cid}/create`], { queryParams: { condition: 'exist_parent' } });
+        }
+      }
+    });
   }
 
   routerPrefix(val: string = '') {
@@ -23,64 +34,70 @@ export class StudentsService extends RootService {
   get featureProps(): ItemProps[] {
     return [
       {
-        name: 'student_image',
-        prop: 'parent.image',
-        listing: true,
-        displayType: 'image',
-        formField: true,
-        formFieldType: 'file_input',
-        width: 50,
-        validations: [Validators.required]
-      },
-      {
-        name: 'name',
-        prop: 'name',
-        listing: true,
+        name: 'parent_full_name',
+        prop: 'parent.name',
+        listing: false,
         formField: true,
         formFieldType: 'text',
         required: true,
         width: 100,
-        validations: [Validators.required]
+        condition: 'new_parent'
       },
       {
-        name: 'desc',
-        prop: 'desc',
-        listing: false,
-        formField: true,
-        formFieldType: 'text',
-        required: true
-      },
-      {
-        name: 'address',
-        prop: 'address',
+        name: 'parent_username',
+        prop: 'parent.username',
         listing: false,
         formField: true,
         formFieldType: 'text',
         required: true,
-        validations: [Validators.required]
+        width: 100,
+        condition: 'new_parent'
       },
       {
-        name: 'location_id',
-        prop: 'location.address',
+        name: 'parent_phone',
+        prop: 'parent.phone',
         listing: false,
         formField: true,
-        formFieldType: 'select',
-        listPrefix: 'students-locations',
-        width: 300,
-        validations: [Validators.required]
-      },
-      {
-        name: 'quantity',
-        prop: 'quantity',
-        listing: false,
-        formField: true,
+        formFieldType: 'text',
         required: true,
-        width: 100
+        width: 100,
+        condition: 'new_parent'
       },
       {
-        name: 'parent_full_name',
-        prop: 'parent.full_name',
-        listing: true,
+        name: 'parent_email',
+        prop: 'parent.email',
+        listing: false,
+        formField: true,
+        formFieldType: 'text',
+        required: true,
+        width: 100,
+        condition: 'new_parent'
+      },
+      {
+        name: 'parent_password',
+        prop: 'parent.password',
+        listing: false,
+        formField: true,
+        formFieldType: 'password',
+        required: true,
+        width: 100,
+        condition: 'new_parent'
+      },
+      {
+        name: 'parent_image',
+        prop: 'parent.image',
+        listing: false,
+        displayType: 'image',
+        formField: true,
+        formFieldType: 'file_input',
+        width: 50,
+        validations: [Validators.required],
+        condition: 'new_parent'
+      },
+      {
+        name: 'name',
+        prop: 'student.name',
+        listing: false,
         formField: true,
         formFieldType: 'text',
         required: true,
@@ -88,25 +105,56 @@ export class StudentsService extends RootService {
       },
       {
         name: 'status',
-        prop: 'status',
-        listing: true,
+        prop: 'student.status',
+        listing: false,
         formField: true,
         formFieldType: 'select',
         listPrefix: 'students-status',
         required: true,
-        width: 100,
-        validations: [Validators.required]
+        width: 100
       },
       {
         name: 'gender',
-        prop: 'gender',
+        prop: 'students.gender',
         listing: false,
         formField: true,
         formFieldType: 'select',
         listPrefix: 'students-gender',
         required: true,
-        width: 100,
-        validations: [Validators.required]
+        width: 100
+      },
+      {
+        name: 'image',
+        prop: 'student.image',
+        listing: false,
+        displayType: 'image',
+        formField: true,
+        formFieldType: 'file_input',
+        width: 50
+      },
+      {
+        name: 'address',
+        prop: 'location.address',
+        listing: false,
+        formField: true,
+        formFieldType: 'text',
+        required: true
+      },
+      {
+        name: 'lat',
+        prop: 'location.lat',
+        listing: false,
+        formField: true,
+        formFieldType: 'text',
+        required: true
+      },
+      {
+        name: 'lng',
+        prop: 'location.lng',
+        listing: false,
+        formField: true,
+        formFieldType: 'text',
+        required: true
       }
     ];
   }

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map, takeWhile } from 'rxjs/operators';
 import { AppHelper } from '@app/core/classes/app-helper';
@@ -15,6 +15,8 @@ import { UtilitiesService } from '@app/shared/services/utilities.service';
   styleUrls: ['./core-form.component.scss']
 })
 export class CoreFormComponent implements OnInit, OnDestroy {
+  extraCondition: Params;
+
   get lists() {
     return this._lists;
   }
@@ -72,6 +74,21 @@ export class CoreFormComponent implements OnInit, OnDestroy {
         this.loadResources(routeInfo.id);
       }
     });
+    this.activatedRoute.queryParams.pipe(takeWhile(() => this.alive)).subscribe(data => {
+      this.extraCondition = data;
+    });
+  }
+
+  checkConditions(condition: string[]) {
+    if (!condition) {
+      return true;
+    } else {
+      if (condition !== this.extraCondition.condition) {
+        return false;
+      } else {
+        return true;
+      }
+    }
   }
 
   /**

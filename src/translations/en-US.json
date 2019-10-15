@@ -273,7 +273,8 @@
     "ex:": "Ex:",
     "uploadImage": "Upload Image",
     "new_parent": "New Parent",
-    "exist_parent": "Exist Parent"
+    "exist_parent": "Exist Parent",
+    "default": "Action needed"
   },
   "dashboard": {
     "chart": {

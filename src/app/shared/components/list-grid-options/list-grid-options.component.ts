@@ -25,8 +25,8 @@ export class ListGridOptionsComponent {
     this.dialog.open(DialogComponent, {
       data: {
         message: 'exist_new',
-        submitText: 'new_parent',
-        cancelText: 'exist_parent',
+        firstButtonText: 'exist_parent',
+        secondButtonText: 'new_parent',
         action
       }
     });

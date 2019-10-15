@@ -24,6 +24,16 @@
           ><span>students_in_ride</span></span
         >
 
+        <span fxFlex class="mrg-btm" *ngIf="summary?.students_on_bus"
+          ><mat-icon>linked</mat-icon><span class="number">{{ summary?.students_on_bus }} </span
+          ><span>students_on_bus</span></span
+        >
+
+        <span fxFlex class="mrg-btm" *ngIf="summary?.students_not_linked"
+          ><mat-icon>linked</mat-icon><span class="number">{{ summary?.students_not_linked }} </span
+          ><span>students_not_linked</span></span
+        >
+
         <ng-container *ngIf="summary?.length > 0">
           <span fxFlex class="mrg-btm" *ngIf="summary[0]?.linked_driver"
             ><mat-icon>linked</mat-icon><span class="number">{{ summary[0]?.linked_driver }} </span
