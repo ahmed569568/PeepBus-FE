@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { ListOptions, Pagination, RowData } from '@app/interfaces';
+import { ListOptions, Pagination, RowData } from '../../../interfaces';
 import { UtilitiesService } from '../../services/utilities.service';
-import { I18nService } from '@app/core';
+import { I18nService } from '../../../core/i18n.service';
 
 @Component({
   selector: 'app-pagination',

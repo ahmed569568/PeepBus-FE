@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CoreFormComponent } from '@app/core/components/core-form/core-form.component';
-import { UsersService } from '@app/users-feature/users.service';
+import { CoreFormComponent } from '../../../core/components/core-form/core-form.component';
+import { UsersService } from '../../users.service';
 import { FormBuilder } from '@angular/forms';
-import { UtilitiesService } from '@app/shared/services/utilities.service';
-import { environment } from '@env/environment';
+import { UtilitiesService } from '../../../shared/services/utilities.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-users-profile',

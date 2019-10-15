@@ -4,6 +4,7 @@ import { MapService } from '../../services/map.service';
 import { transform } from 'ol/proj';
 import { takeWhile } from 'rxjs/operators';
 import { ControlComponent, LayerComponent, OverlayComponent, ViewComponent } from 'ngx-openlayers';
+import { RootService } from '../../../core/root.service';
 
 @Component({
   selector: 'app-map',
@@ -18,7 +19,7 @@ export class MapComponent implements OnInit, OnChanges, OnDestroy {
   @ViewChild('control', null) control: ControlComponent;
   @ViewChild('overlay', null) overlay: OverlayComponent;
 
-  @Input() service: any;
+  @Input() service: RootService;
   @Input() mapConfig: any;
   @Input() mapId: string;
 
@@ -42,12 +43,11 @@ export class MapComponent implements OnInit, OnChanges, OnDestroy {
       if (this.map) {
         this.map.instance.updateSize();
         this.fitView();
-        console.log('map must resize');
       }
     });
     this.mapService.mapCenter$.pipe(takeWhile(() => this.alive)).subscribe(coords => {
       if (coords) {
-        this.zoom = 15;
+        this.zoom = 10;
         this.mapCenter = coords;
       }
     });
@@ -56,9 +56,7 @@ export class MapComponent implements OnInit, OnChanges, OnDestroy {
     });
   }
 
-  ngOnChanges(): void {
-    AppHelper.pushResize();
-  }
+  ngOnChanges(): void {}
 
   // catchAddress() {
   //     this.mapService.addAddressControl(this.address);

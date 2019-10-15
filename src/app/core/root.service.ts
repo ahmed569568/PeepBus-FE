@@ -21,11 +21,12 @@ export abstract class RootService {
     models: { data: [] },
     control: { data: [] }
   };
-  centerPoint: {} = {};
+  centerPoint: { lat?: number; lng?: number; id?: number };
 
   protected constructor(protected toast: ToastrService, protected router?: Router, protected api?: ApiRequestService) {
     // Initialize the resourceList as empty object.
     this.resourcesList = {};
+    this.centerPoint = {};
   }
 
   showSuccess(msg: string, title: string) {

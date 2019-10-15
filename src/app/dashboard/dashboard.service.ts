@@ -5,12 +5,19 @@ import { ApiResponse, ItemProps } from '@app/interfaces';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AppHelper } from '@app/core/classes/app-helper';
+import { MapService } from '@app/shared/services/map.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService extends RootService {
-  constructor(protected toast: ToastrService, protected router: Router, protected api: ApiRequestService) {
+  constructor(
+    protected toast: ToastrService,
+    protected router: Router,
+    protected api: ApiRequestService,
+    private mapService?: MapService
+  ) {
     super(toast, router, api);
   }
 
@@ -27,6 +34,7 @@ export class DashboardService extends RootService {
     super.storeResourceListResponse(response);
     this.lists.control = response.response;
     this.centerPoint = response.response.school_location;
+    this.mapService.locate({ lat: +this.centerPoint.lat, lng: +this.centerPoint.lng });
   }
 
   get featureProps(): ItemProps[] {
