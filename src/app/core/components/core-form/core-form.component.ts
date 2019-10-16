@@ -110,6 +110,7 @@ export class CoreFormComponent implements OnInit, OnDestroy {
 
   uploadPhoto(event: any, field: string) {
     this.imageFieldName.push(field);
+    console.log(this.imageFieldName);
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();

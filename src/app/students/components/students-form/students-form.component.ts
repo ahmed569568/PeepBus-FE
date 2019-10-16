@@ -100,12 +100,12 @@ export class StudentsFormComponent extends CoreFormComponent implements OnInit, 
       adaptedForm = {
         ...adaptedForm,
         parent: {
-          // full_name: this.parent.full_name,
-          // username: this.parent.username,
-          // phone: this.parent.phone,
-          // email: this.parent.email,
-          // password: this.parent.password,
-          // image: this.parent.image
+          full_name: this.form.controls.parent_full_name.value,
+          username: this.form.controls.parent_username.value,
+          phone: this.form.controls.parent_phone.value,
+          email: this.form.controls.parent_email.value,
+          password: this.form.controls.parent_password.value,
+          image: this.form.controls.parent_image.value
         }
       };
     } else {
