@@ -1,7 +1,12 @@
 <div [dir]="currentLang === 'ar-SA' ? 'rtl' : 'ltr'" class="app-container" fxFlex>
   <mat-sidenav-container fxFill>
-    <mat-sidenav class="side-menu" #sidenav [mode]="'push'" [opened]="true">
-      <!--      [ngClass]="isWide ? 'wide-menu' : 'narrow-menu'"-->
+    <mat-sidenav
+      class="side-menu"
+      #sidenav
+      [mode]="'side'"
+      [opened]="true"
+      [ngClass]="isWide ? 'wide-menu' : 'narrow-menu'"
+    >
       <nav>
         <mat-list>
           <div class="side-menu-header">

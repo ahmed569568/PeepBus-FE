@@ -1,7 +1,7 @@
 <div fxFlex fxLayout="column" style="padding: 0rem 1rem;">
   <h3 class="form-title">{{ 'common.add' | translate }} {{ cid + '.title_single' | translate }}</h3>
   <form class="d-flex default-form-style" [formGroup]="form" (ngSubmit)="formSubmission()">
-    <div class="form-field" style="flex: 1 1 50%;" *ngIf="checkConditions('exist_parent')">
+    <div class="form-field" style="flex: 1 1 50%;" *ngIf="!isEdit && checkConditions('exist_parent')">
       <mat-form-field appearance="outline">
         <mat-label>{{ cid + '.select_parent' | translate }}</mat-label>
         <mat-select (valueChange)="selectParent($event)" [placeholder]="cid + '.select_parent' | translate">
@@ -102,12 +102,12 @@
                 class="mat-form-field"
                 style="display: flex; flex-direction: column"
               >
-                <label class="imageUploader" for="file">
+                <label class="imageUploader" [for]="'file_' + field.name">
                   <span class="addNew">
                     <img
                       width="30"
                       *ngIf="form.controls[field.name].value"
-                      [src]="imagePath(environment[field.imagePath], form.controls[field.name].value, true)"
+                      [src]="imagePath(environment.imagePath, form.controls[field.name].value, true)"
                       [alt]="field.name"
                     />
                     <img *ngIf="!form.controls[field.name].value" src="../../../../assets/img-alt.png" />
@@ -115,7 +115,7 @@
                 </label>
                 <input
                   style="width: 0.1px; height: 0.1px;"
-                  id="file"
+                  [id]="'file_' + field.name"
                   type="file"
                   (change)="uploadPhoto($event, field.name)"
                 />

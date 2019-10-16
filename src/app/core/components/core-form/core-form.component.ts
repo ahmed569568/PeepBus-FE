@@ -15,8 +15,6 @@ import { UtilitiesService } from '@app/shared/services/utilities.service';
   styleUrls: ['./core-form.component.scss']
 })
 export class CoreFormComponent implements OnInit, OnDestroy {
-  extraCondition: Params;
-
   get lists() {
     return this._lists;
   }
@@ -40,6 +38,7 @@ export class CoreFormComponent implements OnInit, OnDestroy {
     }
     return formFields;
   }
+  extraCondition: Params;
 
   cid: string;
   form: FormGroup;
@@ -57,6 +56,8 @@ export class CoreFormComponent implements OnInit, OnDestroy {
 
   environment = environment;
   imageFieldName: any[] = [];
+
+  currentField: string;
 
   protected _lists: any = [];
 
@@ -88,7 +89,7 @@ export class CoreFormComponent implements OnInit, OnDestroy {
   }
 
   checkConditions(condition: string) {
-    if (!condition) {
+    if (!condition || this.isEdit) {
       return true;
     } else {
       if (condition !== this.extraCondition.condition) {
@@ -109,8 +110,8 @@ export class CoreFormComponent implements OnInit, OnDestroy {
   }
 
   uploadPhoto(event: any, field: string) {
+    this.currentField = field;
     this.imageFieldName.push(field);
-    console.log(this.imageFieldName);
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -129,7 +130,9 @@ export class CoreFormComponent implements OnInit, OnDestroy {
       this.imagePath(null, base64);
     }
     for (const fieldName of this.imageFieldName) {
-      this.form.controls[fieldName].setValue(this.imagePath(fieldName, base64));
+      if (fieldName === this.currentField) {
+        this.form.controls[fieldName].setValue(this.imagePath(fieldName, base64));
+      }
     }
   }
 
@@ -168,12 +171,16 @@ export class CoreFormComponent implements OnInit, OnDestroy {
       .subscribe(
         response => {
           const obj = JSON.parse(JSON.stringify(response)); // clone response object
-          return this.form.patchValue(obj);
+          return this.patchFormValue(obj);
         },
         err => {
           this.service.errorHandle(err);
         }
       );
+  }
+
+  patchFormValue(form: any) {
+    return this.form.patchValue(form);
   }
 
   /**
