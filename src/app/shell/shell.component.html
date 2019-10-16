@@ -3,7 +3,7 @@
     <mat-sidenav
       class="side-menu"
       #sidenav
-      mode="push"
+      mode="side"
       opened="true"
       disableClose="true"
       [ngClass]="isWide ? 'wide-menu' : 'narrow-menu'"
@@ -14,7 +14,7 @@
             <button class="side-menu-button" mat-icon-button (click)="toggleSidenavSize()">
               <mat-icon>menu</mat-icon>
             </button>
-            <button class="side-menu-button" mat-icon-button (click)="logout()">
+            <button class="side-menu-button log-out-btn" mat-icon-button (click)="logout()">
               <mat-icon>exit_to_app</mat-icon>
             </button>
             <img class="logo" src="../../assets/logo.png" alt="LOGO" />

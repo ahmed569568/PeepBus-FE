@@ -182,17 +182,9 @@
 
     .logo,
     .menu-title,
-    .side-menu-bg {
+    .side-menu-bg,
+    .log-out-btn {
       display: none;
     }
   }
-}
-
-:host ::ng-deep .mat-drawer-backdrop {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: auto;
-  position: fixed;
 }
