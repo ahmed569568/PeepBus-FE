@@ -3,8 +3,9 @@
     <mat-sidenav
       class="side-menu"
       #sidenav
-      [mode]="'side'"
-      [opened]="true"
+      mode="push"
+      opened="true"
+      disableClose="true"
       [ngClass]="isWide ? 'wide-menu' : 'narrow-menu'"
     >
       <nav>
