@@ -32,7 +32,10 @@ export class CoreFormComponent implements OnInit, OnDestroy {
     let formFields = {};
     for (const field of this.service.featureProps) {
       if (field.formField) {
-        formFields = { ...formFields, [field.name]: ['', field.validations ? field.validations : null] };
+        formFields = {
+          ...formFields,
+          [field.name]: [field.initValue ? field.initValue : '', field.validations ? field.validations : null]
+        };
       }
     }
     return formFields;
@@ -46,6 +49,11 @@ export class CoreFormComponent implements OnInit, OnDestroy {
   config = AppConfig;
   helper = AppHelper;
   alive = true;
+  mapConfigs = {
+    type: 'single',
+    drawing: true,
+    drawingType: 'Point'
+  };
 
   environment = environment;
   imageFieldName: any[] = [];
@@ -79,7 +87,7 @@ export class CoreFormComponent implements OnInit, OnDestroy {
     });
   }
 
-  checkConditions(condition: string[]) {
+  checkConditions(condition: string) {
     if (!condition) {
       return true;
     } else {

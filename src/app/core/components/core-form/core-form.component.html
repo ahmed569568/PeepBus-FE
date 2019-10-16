@@ -108,6 +108,11 @@
             </div>
             <app-control-errors [ctl]="form.get(field.name)" class="error-message"></app-control-errors>
           </ng-container>
+          <ng-container *ngIf="field.formFieldType === 'map' && checkConditions(field.condition)">
+            <div id="map-layout">
+              <app-map [mapId]="'client_settings_form'" [mapConfig]="mapConfigs" [service]="null"></app-map>
+            </div>
+          </ng-container>
         </mat-grid-list>
       </div>
     </ng-container>

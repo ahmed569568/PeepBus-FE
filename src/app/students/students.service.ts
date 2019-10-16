@@ -34,23 +34,21 @@ export class StudentsService extends RootService {
   get featureProps(): ItemProps[] {
     return [
       {
-        name: 'parent_full_name',
+        name: 'full_name',
         prop: 'parent.name',
         listing: false,
         formField: true,
         formFieldType: 'text',
         required: true,
-        width: 100,
         condition: 'new_parent'
       },
       {
         name: 'parent_username',
         prop: 'parent.username',
-        listing: false,
+        listing: true,
         formField: true,
         formFieldType: 'text',
         required: true,
-        width: 100,
         condition: 'new_parent'
       },
       {
@@ -60,7 +58,6 @@ export class StudentsService extends RootService {
         formField: true,
         formFieldType: 'text',
         required: true,
-        width: 100,
         condition: 'new_parent'
       },
       {
@@ -70,19 +67,17 @@ export class StudentsService extends RootService {
         formField: true,
         formFieldType: 'text',
         required: true,
-        width: 100,
         condition: 'new_parent'
       },
-      {
-        name: 'parent_password',
-        prop: 'parent.password',
-        listing: false,
-        formField: true,
-        formFieldType: 'password',
-        required: true,
-        width: 100,
-        condition: 'new_parent'
-      },
+      // {
+      //   name: 'parent_password',
+      //   prop: 'parent.password',
+      //   listing: false,
+      //   formField: true,
+      //   formFieldType: 'password',
+      //   required: true,
+      //   condition: 'new_parent'
+      // },
       {
         name: 'parent_image',
         prop: 'parent.image',
@@ -90,18 +85,15 @@ export class StudentsService extends RootService {
         displayType: 'image',
         formField: true,
         formFieldType: 'file_input',
-        width: 50,
-        validations: [Validators.required],
         condition: 'new_parent'
       },
       {
         name: 'name',
-        prop: 'student.name',
-        listing: false,
+        prop: 'name',
+        listing: true,
         formField: true,
         formFieldType: 'text',
-        required: true,
-        width: 100
+        required: true
       },
       {
         name: 'status',
@@ -110,8 +102,7 @@ export class StudentsService extends RootService {
         formField: true,
         formFieldType: 'select',
         listPrefix: 'students-status',
-        required: true,
-        width: 100
+        required: true
       },
       {
         name: 'gender',
@@ -120,8 +111,7 @@ export class StudentsService extends RootService {
         formField: true,
         formFieldType: 'select',
         listPrefix: 'students-gender',
-        required: true,
-        width: 100
+        required: true
       },
       {
         name: 'image',
@@ -129,8 +119,7 @@ export class StudentsService extends RootService {
         listing: false,
         displayType: 'image',
         formField: true,
-        formFieldType: 'file_input',
-        width: 50
+        formFieldType: 'file_input'
       },
       {
         name: 'address',
@@ -138,23 +127,27 @@ export class StudentsService extends RootService {
         listing: false,
         formField: true,
         formFieldType: 'text',
-        required: true
+        required: true,
+        initValue: { value: '', disabled: true }
+      },
+      {
+        name: 'map',
+        prop: 'map',
+        listing: false,
+        formField: true,
+        formFieldType: 'map'
       },
       {
         name: 'lat',
-        prop: 'location.lat',
+        prop: 'lat',
         listing: false,
-        formField: true,
-        formFieldType: 'text',
-        required: true
+        formField: true
       },
       {
         name: 'lng',
-        prop: 'location.lng',
+        prop: 'lng',
         listing: false,
-        formField: true,
-        formFieldType: 'text',
-        required: true
+        formField: true
       }
     ];
   }

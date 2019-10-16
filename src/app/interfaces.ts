@@ -36,6 +36,7 @@ export interface ItemProps {
   imagePath?: string;
   validations?: Validators[];
   condition?: any;
+  initValue?: any;
 }
 
 export interface Row {
