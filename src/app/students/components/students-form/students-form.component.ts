@@ -65,6 +65,8 @@ export class StudentsFormComponent extends CoreFormComponent implements OnInit, 
 
   ngOnInit() {
     super.ngOnInit();
+    this.form.addControl('lat', this.fb.control(['']));
+    this.form.addControl('lng', this.fb.control(['']));
     this.fetchAddress();
   }
 
