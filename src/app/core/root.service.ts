@@ -15,11 +15,9 @@ export abstract class RootService {
   lists: any = {
     ['drivers-languages']: [],
     users: { data: [] },
-    roles: { data: [] },
-    brands: { data: [] },
-    branches: { data: [] },
     models: { data: [] },
-    control: { data: [] }
+    control: { data: [] },
+    parents: []
   };
   centerPoint: { lat?: number; lng?: number; id?: number };
 

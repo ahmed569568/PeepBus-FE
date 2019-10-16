@@ -13,6 +13,9 @@
             <button class="side-menu-button" mat-icon-button (click)="toggleSidenavSize()">
               <mat-icon>menu</mat-icon>
             </button>
+            <button class="side-menu-button" mat-icon-button (click)="logout()">
+              <mat-icon>exit_to_app</mat-icon>
+            </button>
             <img class="logo" src="../../assets/logo.png" alt="LOGO" />
           </div>
           <ng-container *ngFor="let item of menuItems.items; let i = index">

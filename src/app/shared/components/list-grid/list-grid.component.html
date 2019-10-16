@@ -23,8 +23,12 @@
         <tr *ngFor="let row of rows?.data">
           <ng-container *ngFor="let column of columns">
             <td *ngIf="column.displayType === 'image'">
-              <img *ngIf="getValue(row, column.prop)" width="40" [src]="getValue(row, column.prop)" alt="" />
-              <img width="40" src="../../../../assets/man.jpg" alt="placeholder" />
+              <img
+                *ngIf="getValue(row, column.prop)"
+                width="40"
+                [src]="getValue(row, column.prop) ? getValue(row, column.prop) : '../../../../assets/man.jpg'"
+                alt=""
+              />
             </td>
             <!-- Image TD -->
             <td *ngIf="column.displayType === 'color'">
@@ -87,7 +91,7 @@
               </ng-container>
             </div>
           </td>
-          <ng-container> </ng-container>
+          <ng-container></ng-container>
         </tr>
       </tbody>
     </table>
