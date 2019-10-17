@@ -1,7 +1,13 @@
 <div [dir]="currentLang === 'ar-SA' ? 'rtl' : 'ltr'" class="app-container" fxFlex>
-  <mat-sidenav-container fxFill>
-    <mat-sidenav class="side-menu" #sidenav [mode]="'push'" [opened]="true">
-      <!--      [ngClass]="isWide ? 'wide-menu' : 'narrow-menu'"-->
+  <mat-drawer-container fxFill>
+    <mat-drawer
+      class="side-menu"
+      #sidenav
+      mode="side"
+      opened="true"
+      disableClose="true"
+      [ngClass]="isWide ? 'wide-menu' : 'narrow-menu'"
+    >
       <nav>
         <mat-list>
           <div class="side-menu-header">
@@ -51,12 +57,12 @@
         </mat-list>
         <div class="side-menu-bg"></div>
       </nav>
-    </mat-sidenav>
+    </mat-drawer>
 
-    <mat-sidenav-content>
+    <mat-drawer-content [ngClass]="isWide ? 'wide-menu' : 'narrow-menu'">
       <div fx-flex fxLayout="column">
         <router-outlet></router-outlet>
       </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>

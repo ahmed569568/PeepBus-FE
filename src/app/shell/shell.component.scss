@@ -34,12 +34,10 @@
 }
 
 .side-menu-button {
-  //margin-right: 1rem;
-  //margin-bottom: 3.5rem;
   margin: 0 1rem 3.5rem 8px;
 
   mat-icon {
-    color: #313131 !important;
+    color: #313131;
   }
 }
 
@@ -168,17 +166,33 @@
   background-size: cover;
 }
 
-.side-menu {
-  max-width: 28%;
-  padding-top: 28px;
-  position: fixed;
-
+mat-drawer {
   &.wide-menu {
     min-width: 270px;
   }
 
   &.narrow-menu {
     min-width: 20px;
+  }
+}
+
+mat-drawer-content {
+  &.wide-menu {
+    margin-left: 270px !important;
+  }
+}
+
+.side-menu {
+  max-width: 28%;
+  padding-top: 28px;
+  position: fixed;
+
+  &.wide-menu {
+    //min-width: 270px;
+  }
+
+  &.narrow-menu {
+    //min-width: 20px;
 
     .logo,
     .menu-title,
