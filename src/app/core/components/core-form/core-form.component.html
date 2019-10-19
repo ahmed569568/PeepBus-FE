@@ -88,12 +88,12 @@
               class="mat-form-field"
               style="display: flex; flex-direction: column"
             >
-              <label class="imageUploader" for="file">
+              <label class="imageUploader" [for]="'file_' + field.name">
                 <span class="addNew">
                   <img
                     width="30"
                     *ngIf="form.controls[field.name].value"
-                    [src]="imagePath(environment[field.imagePath], form.controls[field.name].value, true)"
+                    [src]="imagePath(environment.imagePath, form.controls[field.name].value, true)"
                     [alt]="field.name"
                   />
                   <img *ngIf="!form.controls[field.name].value" src="../../../../assets/img-alt.png" />
@@ -101,7 +101,7 @@
               </label>
               <input
                 style="width: 0.1px; height: 0.1px;"
-                id="file"
+                [id]="'file_' + field.name"
                 type="file"
                 (change)="uploadPhoto($event, field.name)"
               />

@@ -39,19 +39,6 @@ export class StudentsFormComponent extends CoreFormComponent implements OnInit, 
     ];
   }
 
-  // refactorItem(item: any): any {
-  //   super.refactorItem(item);
-  //   /**
-  //    * Set value of selected items
-  //    */
-  //   const selectedUsers = [];
-  //   for (const user of item.users) {
-  //     selectedUsers.push(user.user_id);
-  //   }
-  //   this.form.controls.branch_managers.setValue(selectedUsers); // Final Return
-  //   return item;
-  // }
-
   fetchAddress() {
     this.mapService.getLocation.subscribe(data => {
       if (data.location) {
@@ -65,7 +52,6 @@ export class StudentsFormComponent extends CoreFormComponent implements OnInit, 
   selectParent(e: any) {
     this.api.get(`parents/${e}/show`).subscribe(data => {
       this.parent = data.response;
-      console.log(this.parent, this.form.value);
     });
   }
 
@@ -79,7 +65,21 @@ export class StudentsFormComponent extends CoreFormComponent implements OnInit, 
 
   ngOnInit() {
     super.ngOnInit();
+    this.form.addControl('lat', this.fb.control(['']));
+    this.form.addControl('lng', this.fb.control(['']));
     this.fetchAddress();
+  }
+
+  patchFormValue(form: any) {
+    super.patchFormValue(form);
+    this.form.controls.parent_full_name.setValue(form.parent.full_name);
+    this.form.controls.parent_username.setValue(form.parent.username);
+    this.form.controls.parent_phone.setValue(form.parent.phone);
+    this.form.controls.parent_image.setValue(form.parent.image);
+    this.form.controls.parent_email.setValue(form.parent.email);
+    this.form.controls.address.setValue(form.location.address);
+    this.form.controls.lat.setValue(form.location.lat);
+    this.form.controls.lng.setValue(form.location.lng);
   }
 
   prepareFormAfterSubmit() {
@@ -111,7 +111,6 @@ export class StudentsFormComponent extends CoreFormComponent implements OnInit, 
     } else {
       adaptedForm = { ...adaptedForm, parent: { id: this.parent.id } };
     }
-    console.log(adaptedForm);
     return adaptedForm;
   }
 

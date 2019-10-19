@@ -136,19 +136,19 @@ export class StudentsService extends RootService {
         listing: false,
         formField: true,
         formFieldType: 'map'
-      },
-      {
-        name: 'lat',
-        prop: 'lat',
-        listing: false,
-        formField: true
-      },
-      {
-        name: 'lng',
-        prop: 'lng',
-        listing: false,
-        formField: true
       }
+      // {
+      //   name: 'lat',
+      //   prop: 'lat',
+      //   listing: false,
+      //   formField: true
+      // },
+      // {
+      //   name: 'lng',
+      //   prop: 'lng',
+      //   listing: false,
+      //   formField: true
+      // }
     ];
   }
 }
