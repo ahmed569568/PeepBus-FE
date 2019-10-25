@@ -29,8 +29,7 @@
         </span>
 
         <span fxFlex class="mrg-btm" *ngIf="summary?.bus_in_ride"
-          ><mat-icon>linked</mat-icon><span class="number">{{ summary?.bus_in_ride }} </span
-          ><span>bus_in_rider</span></span
+          ><mat-icon>linked</mat-icon><span class="number">{{ summary?.bus_in_ride }} </span><span>In trip</span></span
         >
         <span fxFlex class="mrg-btm" *ngIf="summary?.bus_stop"
           ><mat-icon>linked</mat-icon><span class="number">{{ summary?.bus_stop }} </span><span>bus_stop</span></span
@@ -41,7 +40,7 @@
         >
         <span fxFlex class="mrg-btm" *ngIf="summary?.students_in_ride"
           ><mat-icon>linked</mat-icon><span class="number">{{ summary?.students_in_ride }} </span
-          ><span>students_in_ride</span></span
+          ><span>Students in trip</span></span
         >
 
         <span fxFlex class="mrg-btm" *ngIf="summary?.students_on_bus"
@@ -77,12 +76,11 @@
             ><span>bus_in_ride</span></span
           >
           <span fxFlex class="mrg-btm" *ngIf="summary[0]?.bus_stop"
-            ><mat-icon>link_off</mat-icon><span class="number">{{ summary[0]?.bus_stop }} </span
-            ><span>bus_stop</span></span
+            ><mat-icon>link_off</mat-icon><span class="number">{{ summary[0]?.bus_stop }} </span><span>Stop</span></span
           >
           <span fxFlex class="mrg-btm" *ngIf="summary[0]?.student_not_in_ride"
             ><mat-icon>link_off</mat-icon><span class="number">{{ summary[0]?.student_not_in_ride }} </span
-            ><span>student_not_in_ride</span></span
+            ><span>Student waiting</span></span
           >
           <span fxFlex class="mrg-btm" *ngIf="summary[0]?.students_in_ride"
             ><mat-icon>link_off</mat-icon><span class="number">{{ summary[0]?.students_in_ride }} </span
@@ -90,6 +88,14 @@
           >
         </ng-container>
       </div>
+      <!--  1- Incomplete summary
+2- search not exist
+3- Driver data not found
+4- Ride status not found
+5- Why there are actions in the maps list?
+6- When you go to another page and then return to the same page the icons disappear
+7- There are two types of bus icon (on a trip, stop), red and blue
+    -->
       <ng-container *ngIf="summary?.length > 0">
         <div fxFlex fxLayout="column">
           <span fxFlex class="mrg-btm" *ngIf="summary[0]?.students_linked">

@@ -45,35 +45,35 @@ export class DashboardService extends RootService {
         listing: true,
         formField: false,
         width: 100
+      },
+      {
+        name: 'driver_id',
+        prop: 'driver_id',
+        listing: false,
+        formField: false,
+        width: 100
+      },
+      {
+        name: 'status',
+        prop: 'status',
+        listing: true,
+        formField: false,
+        width: 100
+      },
+      {
+        name: 'driver_name',
+        prop: 'driver.name',
+        listing: true,
+        formField: false,
+        width: 100
+      },
+      {
+        name: 'driver_phone',
+        prop: 'driver.phone',
+        listing: true,
+        formField: false,
+        width: 100
       }
-      // {
-      //   name: 'driver_id',
-      //   prop: 'driver_id',
-      //   listing: true,
-      //   formField: false,
-      //   width: 100
-      // },
-      // {
-      //   name: 'status',
-      //   prop: 'status',
-      //   listing: true,
-      //   formField: false,
-      //   width: 100
-      // },
-      // {
-      //   name: 'driver_name',
-      //   prop: 'driver.name',
-      //   listing: true,
-      //   formField: false,
-      //   width: 100
-      // },
-      // {
-      //   name: 'driver_phone',
-      //   prop: 'driver.phone',
-      //   listing: true,
-      //   formField: false,
-      //   width: 100
-      // }
     ];
   }
 }

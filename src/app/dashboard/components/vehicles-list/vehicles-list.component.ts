@@ -11,7 +11,7 @@ export class VehiclesListComponent extends CoreListComponent implements OnInit {
   constructor(service: DashboardService, utilitiesService: UtilitiesService) {
     super(service, utilitiesService);
     this.listOptions.pagination = false;
-    this.listOptions.searchable = false;
+    this.listOptions.searchable = true;
     this.listOptions.add = false;
   }
 

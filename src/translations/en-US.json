@@ -377,7 +377,10 @@
   },
   "control": {
     "title": "Control",
-    "number": "Number"
+    "number": "Number",
+    "status": "Status",
+    "driver_name": "Driver Name",
+    "driver_phone": "Driver Phone"
   },
   "assign": {
     "name": "Name",

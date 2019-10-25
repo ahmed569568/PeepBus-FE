@@ -10,7 +10,7 @@
               </th>
             </ng-container>
           </ng-container>
-          <th *ngIf="hasActions()" class="actions-head action-column-width">
+          <th *ngIf="hasActions() && controller !== 'control'" class="actions-head action-column-width">
             {{ 'common.actions' | translate }}
           </th>
         </tr>
@@ -65,7 +65,7 @@
             <!-- Text TD -->
           </ng-container>
 
-          <td *ngIf="hasActions()" class="action-column-width actions-data-row">
+          <td *ngIf="hasActions() && controller !== 'control'" class="action-column-width actions-data-row">
             <div class="actions-buttons">
               <ng-container>
                 <button
