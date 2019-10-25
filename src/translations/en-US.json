@@ -360,7 +360,9 @@
     "parent_full_name": "Full Name Of Parent",
     "parent_username": "Username Of Parent",
     "parent_phone": "Phone Of Parent",
-    "parent_email": "Email Of Parent"
+    "parent_email": "Email Of Parent",
+    "vehicle_number": "Bus Number",
+    "driver_name": "Driver Name"
   },
   "settings": {
     "weekdays": "Weekdays",

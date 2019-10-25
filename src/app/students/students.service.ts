@@ -34,6 +34,14 @@ export class StudentsService extends RootService {
   get featureProps(): ItemProps[] {
     return [
       {
+        name: 'image',
+        prop: 'student.image',
+        listing: true,
+        displayType: 'image',
+        formField: true,
+        formFieldType: 'file_input'
+      },
+      {
         name: 'parent_image',
         prop: 'parent.image',
         listing: false,
@@ -44,7 +52,7 @@ export class StudentsService extends RootService {
       },
       {
         name: 'parent_full_name',
-        prop: 'parent.name',
+        prop: 'parent.full_name',
         listing: true,
         formField: true,
         formFieldType: 'text',
@@ -114,18 +122,28 @@ export class StudentsService extends RootService {
         required: true
       },
       {
-        name: 'image',
-        prop: 'student.image',
-        listing: false,
-        displayType: 'image',
-        formField: true,
-        formFieldType: 'file_input'
-      },
-      {
         name: 'address',
         prop: 'location.address',
         listing: false,
         formField: true,
+        formFieldType: 'text',
+        required: true,
+        initValue: { value: '', disabled: true }
+      },
+      {
+        name: 'vehicle_number',
+        prop: 'vehicle.number',
+        listing: true,
+        formField: false,
+        formFieldType: 'text',
+        required: true,
+        initValue: { value: '', disabled: true }
+      },
+      {
+        name: 'driver_name',
+        prop: 'vehicle.driver.name',
+        listing: true,
+        formField: false,
         formFieldType: 'text',
         required: true,
         initValue: { value: '', disabled: true }
