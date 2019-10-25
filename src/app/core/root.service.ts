@@ -233,9 +233,20 @@ export abstract class RootService {
   }
 
   errorHandle(err: any) {
+    console.log(err.status);
+    if (err.status === 401) {
+      return this.errorHandle401(err);
+    }
+
     for (const error of Object.keys(err.error.error)) {
       this.showError(err.error.error[error][0], 'error');
     }
+  }
+
+  errorHandle401(err: any) {
+    sessionStorage.removeItem('credentials');
+    localStorage.removeItem('credentials');
+    this.router.navigate(['/login'], { replaceUrl: true });
   }
 
   navigateToList() {
