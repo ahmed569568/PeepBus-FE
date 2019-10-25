@@ -164,6 +164,12 @@ app-list-type {
   height: var(--mapHeight);
 }
 
+.mat-drawer-container {
+  .mat-drawer-backdrop.mat-drawer-shown {
+    visibility: hidden !important;
+  }
+}
+
 //app-shell {
 //
 //}

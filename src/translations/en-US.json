@@ -374,6 +374,7 @@
     "address": "Address"
   },
   "control": {
+    "title": "Control",
     "number": "Number"
   },
   "assign": {
