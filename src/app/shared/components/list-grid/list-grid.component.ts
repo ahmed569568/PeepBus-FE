@@ -8,7 +8,7 @@ import {
   ViewContainerRef,
   OnDestroy
 } from '@angular/core';
-import { ItemProps, Row } from '@app/interfaces';
+import { ApiResponse, ItemProps, Row } from '@app/interfaces';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { AppHelper } from '@app/core/classes/app-helper';
@@ -58,6 +58,11 @@ export class ListGridComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.service.resources.subscribe(() => {
       this.rows = this.service.resourcesList;
+      // this.service.showItem.subscribe(
+      //   (resp: ApiResponse) => {
+      //     console.log(resp);
+      //   },
+      // );
     });
     this.utilitiesService.dialogActionObservable$.pipe(takeWhile(() => this.alive)).subscribe(data => {
       if (data) {

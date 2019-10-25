@@ -347,17 +347,20 @@
   },
   "students": {
     "student_image": "Student Image",
-    "name": "Name",
+    "name": "Student Name",
     "title": "Students",
     "title_single": "Student",
-    "status": "Status",
-    "gender": "Gender",
+    "status": "Student Status",
+    "gender": "Student Gender",
     "quantity": "Quantity",
     "parent": "Parent",
     "desc": "Description",
     "address": "Address",
     "location_id": "Location",
-    "parent_full_name": "Full Name"
+    "parent_full_name": "Full Name Of Parent",
+    "parent_username": "Username Of Parent",
+    "parent_phone": "Phone Of Parent",
+    "parent_email": "Email Of Parent"
   },
   "settings": {
     "weekdays": "Weekdays",
@@ -372,5 +375,10 @@
   },
   "control": {
     "number": "Number"
+  },
+  "assign": {
+    "name": "Name",
+    "status": "Status",
+    "parent_name": "Parent Name"
   }
 }

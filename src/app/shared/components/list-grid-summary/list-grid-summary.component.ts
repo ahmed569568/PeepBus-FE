@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list-grid-summary',
@@ -16,20 +17,28 @@ export class ListGridSummaryComponent implements OnInit {
 
   summary: any;
 
-  constructor() {}
+  constructor(protected activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.loadResources();
+    this.activatedRoute.params.subscribe((routeInfo: any) => {
+      if (routeInfo.id) {
+        // this.isEdit = true;
+        this.loadResources(routeInfo.id);
+      } else {
+        this.loadResources();
+      }
+    });
   }
 
   /**
    * fetch single item data from service
    * and fill form with it in Edit forms
    */
-  loadResources(): void {
-    this.service.fetchSummary().subscribe(
+  loadResources(id: number = 0): void {
+    this.service.fetchSummary(id).subscribe(
       (response: any) => {
         this.summary = response;
+        console.log(this.summary);
       },
       (err: any) => {
         console.log(err);

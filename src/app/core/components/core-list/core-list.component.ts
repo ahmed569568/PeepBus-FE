@@ -19,7 +19,7 @@ export class CoreListComponent implements OnInit, OnDestroy {
     archive: true,
     add: true,
     edit: true,
-    view: false,
+    view: true,
     exportList: false,
     importList: false,
     locate: false,

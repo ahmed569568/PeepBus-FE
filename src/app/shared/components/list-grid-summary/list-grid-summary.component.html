@@ -4,10 +4,30 @@
       <img class="shadow-img" src="../../../../assets/buses.png" alt="" />
     </div>
     <div class="title-container" fxFlex fxLayout="column">
-      <h3 fxFlex>
+      <h3 *ngIf="controller" fxFlex>
         {{ listOptions.customTitle ? (listOptions.customTitle | translate) : (controller + '.title' | translate) }}
       </h3>
       <div fxFlex fxLayout="row">
+        <span fxFlex class="mrg-btm" *ngIf="summary?.bus_number">
+          <span>Bus Number: </span>
+          <span class="number">{{ summary?.bus_number }} </span>
+        </span>
+
+        <span fxFlex class="mrg-btm" *ngIf="summary?.driver_name">
+          <span>Driver Name: </span>
+          <span class="number">{{ summary?.driver_name }} </span>
+        </span>
+
+        <span fxFlex class="mrg-btm" *ngIf="summary?.busy">
+          <mat-icon>linked</mat-icon>
+          <span class="number"> {{ summary?.busy }} </span>
+        </span>
+
+        <span fxFlex class="mrg-btm" *ngIf="summary?.free">
+          <mat-icon>link_off</mat-icon>
+          <span class="number">{{ summary?.free }} </span>
+        </span>
+
         <span fxFlex class="mrg-btm" *ngIf="summary?.bus_in_ride"
           ><mat-icon>linked</mat-icon><span class="number">{{ summary?.bus_in_ride }} </span
           ><span>bus_in_rider</span></span

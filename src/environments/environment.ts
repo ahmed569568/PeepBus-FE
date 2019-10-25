@@ -14,9 +14,10 @@ export const environment = {
   production: false,
   hmr: true,
   version: env.npm_package_version + '-dev',
-  serverUrl: 'http://35.243.244.23:8000/api/admin/',
+  // serverUrl: 'http://35.243.244.23:8000/api/admin/',
+  serverUrl: 'http://localhost:8000/api/admin/',
   socketUrl: 'http://35.243.244.23:3200/admins',
-  imagePath: 'http://35.243.244.23:8000/public/storage/',
+  imagePath: 'http://35.243.244.23:8000/storage/',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'ar-SA']
 };

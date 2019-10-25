@@ -282,7 +282,7 @@ export abstract class RootService {
    * Generic Show Action Request
    * @param id: Item Identifier
    */
-  fetchSummary() {
+  fetchSummary(id: number = 0) {
     return this.doFetchSummary(this.getFunctionURL(`summary`));
   }
 

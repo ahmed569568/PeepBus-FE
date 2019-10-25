@@ -1,0 +1,70 @@
+<div class="container" style="height: 100%">
+  <div style="display: flex; flex-direction: row; justify-content: center">
+    <div style="flex: 1; box-shadow: 5px 0 15px -2px rgba(0, 99, 244, 0.24);">
+      <div fxFlex fxLayout="column">
+        <div fxLayout="row">
+          <app-list-grid-summary fxFlex="100" [controller]="cid" [service]="service" [listOptions]="listOptions">
+          </app-list-grid-summary>
+        </div>
+
+        <!--        <app-list-type [listOptions]="listOptions" [service]="service"></app-list-type>-->
+
+        <app-list-grid-search *ngIf="listOptions.searchable" [service]="service"></app-list-grid-search>
+
+        <div class="table-overflow">
+          <div class="tbl-content">
+            <table class="table table-hover">
+              <thead class="tbl-header" *ngIf="rows?.data?.length !== 0">
+                <tr>
+                  <ng-container *ngFor="let column of columns">
+                    <ng-container *ngIf="column.listing">
+                      <th [style.width.px]="column.width" style="height: 42px !important;">
+                        {{ 'assign.' + column.name | translate }}
+                      </th>
+                    </ng-container>
+                  </ng-container>
+                </tr>
+              </thead>
+
+              <tbody>
+                <ng-container *ngIf="rows?.data?.length === 0">
+                  <h3 class="ion-text-center">{{ 'msg.no_data_founds' | translate }}</h3>
+                </ng-container>
+                <tr *ngFor="let row of rows">
+                  <ng-container>
+                    <td [style.width.px]="200" class="link-text">
+                      <span class="ng-star-inserted">
+                        <mat-checkbox
+                          [checked]="getValue(row, 'vehicle_id')"
+                          (change)="assign($event, row.id)"
+                        ></mat-checkbox>
+                      </span>
+                    </td>
+                    <!-- Text TD -->
+                  </ng-container>
+                  <ng-container>
+                    <td [style.width.px]="200" class="link-text">
+                      <span class="ng-star-inserted">
+                        {{ getValue(row, 'name') }}
+                      </span>
+                    </td>
+                    <!-- Text TD -->
+                  </ng-container>
+
+                  <ng-container>
+                    <td [style.width.px]="200" class="link-text">
+                      <span class="ng-star-inserted">
+                        {{ getValue(row, 'parent.full_name') }}
+                      </span>
+                    </td>
+                    <!-- Text TD -->
+                  </ng-container>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
