@@ -14,6 +14,7 @@ import { AppHelper } from '@app/core/classes/app-helper';
 })
 export class VehiclesViewComponent implements OnInit {
   itemId: number;
+  term: string;
   columns: ItemProps[];
   listOptions: ListOptions = {
     itemsPerPage: [5, 10, 20, 50, 100],
@@ -60,10 +61,11 @@ export class VehiclesViewComponent implements OnInit {
     return AppHelper.deepFind(obj, path);
   }
 
-  loadResources(id: number): void {
+  loadResources(id: number, name?: string): void {
     this.itemId = id;
+    console.log(name);
     this.service
-      .showItem(id)
+      .showItem(id, name)
       .pipe(
         map(item => {
           // this.item = item;
@@ -80,6 +82,14 @@ export class VehiclesViewComponent implements OnInit {
           this.service.errorHandle(err);
         }
       );
+  }
+
+  search() {
+    this.activatedRoute.params.subscribe((routeInfo: any) => {
+      if (routeInfo.id) {
+        return this.loadResources(routeInfo.id, this.term);
+      }
+    });
   }
 
   refactorItem(item: any): any {

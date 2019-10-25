@@ -162,9 +162,14 @@ export abstract class RootService {
   /**
    * Generic Show Action Request
    * @param id: Item Identifier
+   * @param name: search by name
    */
-  showItem(id: number) {
-    return this.doShow(this.getFunctionURL(`${id}/show`));
+  showItem(id: number, name?: string) {
+    if (name === undefined) {
+      return this.doShow(this.getFunctionURL(`${id}/show`));
+    } else {
+      return this.doShow(this.getFunctionURL(`${id}/show/${name}`));
+    }
   }
 
   doShow(url: string) {

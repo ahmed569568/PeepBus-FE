@@ -9,8 +9,10 @@
 
         <!--        <app-list-type [listOptions]="listOptions" [service]="service"></app-list-type>-->
 
-        <app-list-grid-search *ngIf="listOptions.searchable" [service]="service"></app-list-grid-search>
-
+        <mat-form-field appearance="outline">
+          <mat-label><mat-icon>search</mat-icon>{{ 'common.search' | translate }}</mat-label>
+          <input matInput type="search" [(ngModel)]="term" (keyup.enter)="search()" />
+        </mat-form-field>
         <div class="table-overflow">
           <div class="tbl-content">
             <table class="table table-hover">
