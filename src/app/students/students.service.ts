@@ -34,9 +34,18 @@ export class StudentsService extends RootService {
   get featureProps(): ItemProps[] {
     return [
       {
+        name: 'parent_image',
+        prop: 'parent.image',
+        listing: false,
+        displayType: 'image',
+        formField: true,
+        formFieldType: 'file_input',
+        condition: 'new_parent'
+      },
+      {
         name: 'parent_full_name',
         prop: 'parent.name',
-        listing: false,
+        listing: true,
         formField: true,
         formFieldType: 'text',
         required: true,
@@ -45,7 +54,7 @@ export class StudentsService extends RootService {
       {
         name: 'parent_username',
         prop: 'parent.username',
-        listing: true,
+        listing: false,
         formField: true,
         formFieldType: 'text',
         required: true,
@@ -76,15 +85,6 @@ export class StudentsService extends RootService {
         formField: true,
         formFieldType: 'password',
         required: true,
-        condition: 'new_parent'
-      },
-      {
-        name: 'parent_image',
-        prop: 'parent.image',
-        listing: false,
-        displayType: 'image',
-        formField: true,
-        formFieldType: 'file_input',
         condition: 'new_parent'
       },
       {
