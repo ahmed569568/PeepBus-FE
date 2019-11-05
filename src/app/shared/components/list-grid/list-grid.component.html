@@ -69,7 +69,7 @@
             <div class="actions-buttons">
               <ng-container>
                 <button
-                  *ngIf="options.view && controller == 'students'"
+                  *ngIf="options.view && controller == 'vehicles'"
                   [secured]="controller + '-index'"
                   [matTooltip]="'common.view' | translate"
                   (click)="doAction('view', row.id)"
