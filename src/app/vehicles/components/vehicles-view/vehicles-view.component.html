@@ -13,6 +13,7 @@
           <mat-label><mat-icon>search</mat-icon>{{ 'common.search' | translate }}</mat-label>
           <input matInput type="search" [(ngModel)]="term" (keyup.enter)="search()" />
         </mat-form-field>
+
         <div class="table-overflow">
           <div class="tbl-content">
             <table class="table table-hover">
@@ -32,7 +33,7 @@
                 <ng-container *ngIf="rows?.data?.length === 0">
                   <h3 class="ion-text-center">{{ 'msg.no_data_founds' | translate }}</h3>
                 </ng-container>
-                <tr *ngFor="let row of rows">
+                <tr class="row" *ngFor="let row of rows">
                   <ng-container>
                     <td [style.width.px]="200" class="link-text">
                       <span class="ng-star-inserted">

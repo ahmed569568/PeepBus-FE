@@ -24,8 +24,9 @@
           <ng-container *ngFor="let column of columns">
             <td *ngIf="column.displayType === 'image'">
               <img
+                class="tbl-img"
                 *ngIf="getValue(row, column.prop)"
-                width="40"
+                width="50"
                 [src]="
                   getValue(row, column.prop)
                     ? environment.imagePath + getValue(row, column.prop)

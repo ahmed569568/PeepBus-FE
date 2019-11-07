@@ -170,6 +170,23 @@ app-list-type {
   }
 }
 
-//app-shell {
-//
-//}
+mat-drawer {
+  .mat-drawer-inner-container {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+}
+
+app-list-grid {
+  padding: 0 20px;
+}
+
+app-pagination {
+  padding: 0 20px 20px 20px;
+}
+
+.mat-drawer-content {
+  > div {
+    height: 100%;
+  }
+}
