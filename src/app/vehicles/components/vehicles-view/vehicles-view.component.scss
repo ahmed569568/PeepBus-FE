@@ -1,4 +1,36 @@
 mat-form-field {
   width: 90%;
-  margin: 0 5%;
+  margin: 8px 5%;
+}
+
+.table-overflow {
+  padding: 0 12px;
+}
+
+.row {
+  border: 2px solid red;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0 10px;
+
+  tr {
+    //&.locked {
+    //  background: white;
+    //  cursor: pointer;
+    //}
+
+    &:hover {
+      background-color: rgba(0, 99, 244, 0.24);
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: solid 1px rgba(0, 99, 244, 0.24);
+      font-size: 14px;
+      color: #2a3348;
+      text-align: center;
+    }
+  }
 }

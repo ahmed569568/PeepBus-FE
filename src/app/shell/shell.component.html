@@ -1,6 +1,9 @@
 <div [dir]="currentLang === 'ar-SA' ? 'rtl' : 'ltr'" class="app-container" fxFlex>
   <mat-drawer-container fxFill>
     <mat-drawer
+      fxFlex=""
+      fxLayout=""
+      fxLayoutAlign="center space-between"
       class="side-menu"
       #sidenav
       mode="side"
@@ -8,7 +11,7 @@
       disableClose="true"
       [ngClass]="isWide ? 'wide-menu' : 'narrow-menu'"
     >
-      <nav>
+      <nav fxFlex="">
         <mat-list>
           <div class="side-menu-header">
             <button class="side-menu-button" mat-icon-button (click)="toggleSidenavSize()">
@@ -55,8 +58,8 @@
             <mat-icon [matTooltip]="'menu.settings' | translate">settings_applications</mat-icon>
           </a>
         </mat-list>
-        <div class="side-menu-bg"></div>
       </nav>
+      <div fxFlex="" class="side-menu-bg"></div>
     </mat-drawer>
 
     <mat-drawer-content [ngClass]="isWide ? 'wide-menu' : 'narrow-menu'">
