@@ -15,7 +15,7 @@ export const environment = {
   hmr: true,
   version: env.npm_package_version + '-dev',
   serverUrl: 'http://34.66.126.130:8000/api/admin/',
-  // serverUrl: 'http://localhost:8000/api/admin/',
+  /// serverUrl: 'http://localhost:8000/api/admin/',
   socketUrl: 'http://34.66.126.130:3200/admins',
   imagePath: 'http://34.66.126.130:8000/storage/',
   defaultLanguage: 'en-US',
